@@ -5,4 +5,8 @@ export interface ITheme {
   space: {
     padding: Array<number>;
   };
+  sizes: {
+    width: Array<number>;
+    height: Array<number>;
+  };
 }

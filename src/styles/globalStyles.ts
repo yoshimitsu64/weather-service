@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@200&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300&display=swap');
 
   body {
     overflow: hidden;

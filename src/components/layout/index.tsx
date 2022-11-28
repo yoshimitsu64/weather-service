@@ -1,4 +1,4 @@
-import { ILayoutProps } from '../../interfaces/ILayoutProps';
+import { ILayoutProps } from '@interfaces/ILayoutProps';
 import { StyledLayout } from './styled';
 
 const Layout = ({ children }: ILayoutProps) => {

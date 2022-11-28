@@ -1,11 +1,22 @@
-import { StyledEvent } from '@components/event/styled';
+import { StyledEvent, StyledEventsContainer, StyledEventContainer } from './styled';
 
 interface IProps {
-  text: string;
+  timeStart: string;
+  timeEnd: string;
+  task: string;
 }
 
-const Event = ({ text }: IProps) => {
-  return <StyledEvent>{text}</StyledEvent>;
+const Event = ({ timeStart, timeEnd, task }: IProps) => {
+  return (
+    <StyledEventsContainer>
+      <StyledEventContainer>
+        <StyledEvent>
+          {timeStart}-{timeEnd}
+        </StyledEvent>
+        <div>{task}</div>
+      </StyledEventContainer>
+    </StyledEventsContainer>
+  );
 };
 
 export default Event;

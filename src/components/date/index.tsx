@@ -1,10 +1,7 @@
-import { StyledDateContainer, StyledDate, StyledHours } from './styled';
-import { days, months } from '@constants/date';
 import { useEffect, useState } from 'react';
 
-interface IDate {
-  time: Date;
-}
+import { days, months } from '@constants/date';
+import { StyledDateContainer, StyledDate, StyledHours } from './styled';
 
 const DayDate = () => {
   const [time, setTime] = useState<Date>(new Date());

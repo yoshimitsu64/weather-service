@@ -1,38 +1,36 @@
-import { StyledButton } from '@components/Button/styled';
-import React, { SyntheticEvent, useEffect, useState } from 'react';
-import { apiCalendar } from '@api/googleCalendar';
-import { sign } from 'crypto';
+import { useState } from 'react';
+import ApiCalendar from 'react-google-calendar-api';
 
-const Button = () => {
-  const [btnText, setBtnText] = useState<string>('Sign in');
-  const [events, setEvents] = useState<any>(null);
-  const getEvents = async () => {
-    return new Promise(async (resolve, reject) => {
-      if (apiCalendar.sign) {
-        apiCalendar
-          .listEvents({
-            timeMin: new Date().toISOString(),
-            showDeleted: true,
-            maxResults: 10,
-            orderBy: 'updated',
-          })
-          .then(({ result }: any) => {
-            if (result.items) {
-              console.log('Events From Calendar', result.items);
-            } else {
-              console.log('No Events');
-            }
+import { setEvents } from '@store/calendar/calendar.slice';
+import { useAppDispatch } from '@hooks/store';
+import { StyledButton } from './styled';
 
-            resolve(result);
-          });
-      } else {
-        apiCalendar.handleAuthClick();
-        resolve(null);
-      }
-    });
+const LoginButton = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
+  const dispatch = useAppDispatch();
+
+  const handleClick = () => () => {
+    if (!isLoggedIn) {
+      ApiCalendar.handleAuthClick().then(() => {
+        ApiCalendar.listEvents({
+          timeMin: new Date().toISOString(),
+          showDeleted: false,
+          maxResults: 4,
+          orderBy: 'updated',
+        }).then(({ result }: any) => {
+          setIsLoggedIn(true);
+          dispatch(setEvents(result.items));
+        });
+      });
+    } else {
+      ApiCalendar.handleSignoutClick();
+      setIsLoggedIn(false);
+      dispatch(setEvents([]));
+    }
   };
 
-  return <StyledButton onClick={getEvents}>{btnText}</StyledButton>;
+  return <StyledButton onClick={handleClick()}>{isLoggedIn ? 'Sign out' : 'Sign in'}</StyledButton>;
 };
 
-export default Button;
+export default LoginButton;

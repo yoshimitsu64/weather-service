@@ -1,5 +1,3 @@
-import { fetchCity } from '../api/fetchCity';
-
 function getPosition(): Promise<GeolocationPosition> {
   return new Promise((res, rej) => {
     navigator.geolocation.getCurrentPosition(res, rej);

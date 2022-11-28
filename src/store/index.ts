@@ -1,6 +1,4 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { accuweatherApi } from './accuweather/accuweather.api';
-import storage from 'redux-persist/es/storage';
 import {
   persistReducer,
   FLUSH,
@@ -11,7 +9,12 @@ import {
   REGISTER,
   persistStore,
 } from 'redux-persist';
+import storage from 'redux-persist/es/storage';
 import accuweatherSlice from '@store/accuweather/accuweather.slice';
+import calendarSlice from '@store/calendar/calendar.slice';
+
+import { accuweatherApi } from './accuweather/accuweather.api';
+
 
 const accuweatherPersistConfig = {
   key: 'accuweather',
@@ -21,7 +24,9 @@ const accuweatherPersistConfig = {
 const reducer = combineReducers({
   [accuweatherApi.reducerPath]: accuweatherApi.reducer,
   accuweather: persistReducer(accuweatherPersistConfig, accuweatherSlice),
+  calendar: calendarSlice,
 });
+
 export const store = configureStore({
   reducer,
   middleware: (getDefaultMiddleware) =>

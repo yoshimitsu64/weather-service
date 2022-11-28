@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, memo, useEffect } from 'react';
+import { ChangeEvent, useState, memo } from 'react';
 
 import { useSearchCityQuery } from '@store/accuweather/accuweather.api';
 import { useDebounce } from '@hooks/useDebounce';

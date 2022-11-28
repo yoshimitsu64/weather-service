@@ -5,14 +5,12 @@ export const StyledButton = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 0;
   border-radius: 4px;
   font-weight: 600;
-  margin: 0 10px;
   width: 200px;
   padding: 10px 0;
   box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-  transition: 0.4s;
+  transition: 0.3s;
   color: rgb(104, 85, 224);
   background-color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(104, 85, 224, 1);

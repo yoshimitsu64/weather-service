@@ -1,14 +1,11 @@
 import { useAppSelector } from '@hooks/store';
-import LoginButton from '@components/Button';
+import LoginButton from '@components/button';
 import Event from '@components/event';
 import { convertDate } from '@helpers/convertDate';
-import {
-  StyledContent,
-  StyledEventsContainer,
-  StyledLoginPanelContainer,
-} from './styled';
+import TodayWeather from '@components/todayWeather';
+import { StyledContent, StyledEventsContainer, StyledLoginPanelContainer } from './styled';
 
-const Content = () => {
+const Content = (): JSX.Element => {
   const events = useAppSelector((state) => state.calendar.events);
 
   return (
@@ -28,6 +25,7 @@ const Content = () => {
             return <Event key={event.iCalUID} {...eventProps} />;
           })}
       </StyledEventsContainer>
+      <TodayWeather />
     </StyledContent>
   );
 };

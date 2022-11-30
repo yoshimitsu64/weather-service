@@ -1,7 +1,7 @@
 import Input from '@components/input';
 import { StyledCity, StyledCityContainer, StyledCountry } from './styled';
 
-const Location = () => {
+const Location = () : JSX.Element => {
   return (
     <StyledCityContainer>
       <StyledCity>Mogilev</StyledCity>

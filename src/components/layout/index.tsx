@@ -4,7 +4,7 @@ interface ILayoutProps {
   children: JSX.Element[];
 }
 
-const Layout = ({ children }: ILayoutProps) => {
+const Layout = ({ children }: ILayoutProps): JSX.Element => {
   return <StyledLayout>{children}</StyledLayout>;
 };
 

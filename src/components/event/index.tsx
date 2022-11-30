@@ -6,7 +6,7 @@ interface IProps {
   task: string;
 }
 
-const Event = ({ timeStart, timeEnd, task }: IProps) => {
+const Event = ({ timeStart, timeEnd, task }: IProps) : JSX.Element => {
   return (
     <StyledEventsContainer>
       <StyledEventContainer>

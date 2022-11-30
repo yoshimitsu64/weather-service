@@ -3,9 +3,9 @@ import ApiCalendar from 'react-google-calendar-api';
 
 import { setEvents } from '@store/calendar/calendar.slice';
 import { useAppDispatch } from '@hooks/store';
-import { StyledButton } from './styled';
+import { StyledButton } from '@components/button/styled';
 
-const LoginButton = () => {
+const LoginButton = () : JSX.Element => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();

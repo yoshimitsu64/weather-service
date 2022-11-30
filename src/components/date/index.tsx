@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { days, months } from '@constants/date';
 import { StyledDateContainer, StyledDate, StyledHours } from './styled';
 
-const DayDate = () => {
-  const [time, setTime] = useState<Date>(new Date());
+const DayDate = () : JSX.Element => {
+  const [time, setTime] = useState<Date>(() => new Date());
 
   useEffect(() => {
     const timeChange = setInterval(() => {

@@ -1,11 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface IInitialState {
-  city: string | null;
+  city: {
+    city: string | null;
+    lat: number | null;
+    lon: number | null;
+  };
 }
 
 const initialState: IInitialState = {
-  city: null,
+  city: {
+    city: null,
+    lat: null,
+    lon: null,
+  },
 };
 
 const accuWeatherSlice = createSlice({
@@ -13,7 +21,11 @@ const accuWeatherSlice = createSlice({
   initialState: initialState,
   reducers: {
     setCity: (state, action) => {
-      state.city = action.payload;
+      state.city = {
+        city: action.payload.city,
+        lat: action.payload.latitude,
+        lon: action.payload.longitude,
+      };
     },
   },
 });

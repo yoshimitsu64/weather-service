@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/redux-saga": "^0.10.5",
     "@types/styled-components": "^5.1.26"
   }
 }

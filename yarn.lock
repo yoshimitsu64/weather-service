@@ -2320,6 +2320,13 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
+"@types/redux-saga@^0.10.5":
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@types/redux-saga/-/redux-saga-0.10.5.tgz#80bf21078379ebc97387dbe56e44467b5677fa85"
+  integrity sha512-sqan7rs+PylBB5u2reL1hm+f0pDsZY1D1/o1vtgjrS4ErjxthK59zKCQyZhSLRcQDiOh3Pwp4fNQyn4A0CTdGA==
+  dependencies:
+    redux-saga "*"
+
 "@types/resolve@1.17.1":
   version "1.17.1"
   resolved "https://registry.npmjs.org/@types/resolve/-/resolve-1.17.1.tgz"
@@ -8917,7 +8924,7 @@ redux-persist@^6.0.0:
   resolved "https://registry.npmjs.org/redux-persist/-/redux-persist-6.0.0.tgz"
   integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
 
-redux-saga@^1.2.1:
+redux-saga@*, redux-saga@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/redux-saga/-/redux-saga-1.2.1.tgz"
   integrity sha512-fVCicLlf4hLP+KB6H7RHfZlZ8LdYckhaemXBB3wh//a2ESyz/z/l8ygxlm0OqPjS/PARdsQ2hIdAltxEB+NgvA==

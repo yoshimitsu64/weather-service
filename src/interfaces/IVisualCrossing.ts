@@ -1,3 +1,4 @@
+
 export interface Hour {
     datetime: string;
     datetimeEpoch: number;
@@ -66,7 +67,7 @@ export interface Day {
     hours: Hour[];
 }
 
-export interface UMOO {
+export interface UMMS {
     distance: number;
     latitude: number;
     longitude: number;
@@ -78,39 +79,7 @@ export interface UMOO {
 }
 
 export interface Stations {
-    UMOO: UMOO;
-}
-
-export interface CurrentConditions {
-    datetime: string;
-    datetimeEpoch: number;
-    temp: number;
-    feelslike: number;
-    humidity: number;
-    dew: number;
-    precip: number;
-    precipprob: number;
-    snow: number;
-    snowdepth: number;
-    preciptype?: any;
-    windgust?: any;
-    windspeed: number;
-    winddir: number;
-    pressure: number;
-    visibility: number;
-    cloudcover: number;
-    solarradiation: number;
-    solarenergy: number;
-    uvindex: number;
-    conditions: string;
-    icon: string;
-    stations: string[];
-    source: string;
-    sunrise: string;
-    sunriseEpoch: number;
-    sunset: string;
-    sunsetEpoch: number;
-    moonphase: number;
+    UMMS: UMMS;
 }
 
 export interface IVisualCrossing {
@@ -121,10 +90,7 @@ export interface IVisualCrossing {
     address: string;
     timezone: string;
     tzoffset: number;
-    description: string;
     days: Day[];
-    alerts: any[];
     stations: Stations;
-    currentConditions: CurrentConditions;
 }
 

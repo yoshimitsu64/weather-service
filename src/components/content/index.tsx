@@ -1,18 +1,25 @@
-import { useAppSelector } from '@hooks/store';
-import LoginButton from '@components/button';
+import { useAppDispatch, useAppSelector } from '@hooks/store';
 import Event from '@components/event';
 import { convertDate } from '@helpers/convertDate';
 import TodayWeather from '@components/todayWeather';
-import { StyledContent, StyledEventsContainer, StyledLoginPanelContainer } from './styled';
+import { useEffect } from 'react';
+import { requestWeather } from '@store/sagaActions';
+import { StyledContent, StyledEventsContainer } from '@components/content/styled';
 
 const Content = (): JSX.Element => {
   const events = useAppSelector((state) => state.calendar.events);
+  const geolocation = useAppSelector((state) => state.openCage.geolocation);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    !geolocation &&
+      navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
+        dispatch(requestWeather(position.coords.latitude, position.coords.longitude));
+      });
+  }, []);
 
   return (
     <StyledContent>
-      <StyledLoginPanelContainer>
-        <LoginButton />
-      </StyledLoginPanelContainer>
       <StyledEventsContainer>
         {events?.length > 0 &&
           events.map((event) => {

@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
+export const StyledTodayBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 350px;
-  height: 200px;
-  background-color: #0093e9;
-  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  width: 500px;
+  height: 350px;
+  background: #3494E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EC6EAD, #3494E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border-radius: 20px;
   padding: 20px 20px 0 20px;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 
 export const StyledTodayWeatherContainer = styled.div`

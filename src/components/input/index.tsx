@@ -4,7 +4,6 @@ import { useSearchCityQuery } from '@store/accuweather/accuweather.api';
 import { useDebounce } from '@hooks/useDebounce';
 import { IDate, IPlace } from '@interfaces/IPlace';
 import { useAppDispatch } from '@hooks/store';
-import { setCity as setCityState } from '@store/accuweather/accuweather.slice';
 
 import {
   StyledInput,
@@ -26,8 +25,8 @@ const Input = (): JSX.Element => {
     setCity(e.target.value);
   };
 
-  const handleClick = (city: string, latitude: number, longitude: number) => () => {
-    dispatch(requestWeather(city, latitude, longitude));
+  const handleClick = (latitude: number, longitude: number) => () => {
+    dispatch(requestWeather(latitude, longitude));
   };
 
   return (
@@ -43,10 +42,7 @@ const Input = (): JSX.Element => {
           <StyledDropDown>
             {places?.map((item: IDate) => {
               return (
-                <StyledListItem
-                  key={item.id}
-                  onClick={handleClick(item.city, item.latitude, item.longitude)}
-                >
+                <StyledListItem key={item.id} onClick={handleClick(item.latitude, item.longitude)}>
                   {item.name}, {item.country}
                 </StyledListItem>
               );

@@ -18,7 +18,7 @@ const Footer = (): JSX.Element => {
   return (
     <StyledFooter>
       <StyledWeatherContainer>
-        {weather!?.daily.length > 0 &&
+        {weather!?.daily?.length > 0 &&
           weather!.daily.map((day) => {
             return (
               <Weather

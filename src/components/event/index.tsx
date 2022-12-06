@@ -1,4 +1,5 @@
-import { StyledEvent, StyledEventsContainer, StyledEventContainer } from './styled';
+import { StyledEvent, StyledEventsContainer, StyledEventContainer, StyledText } from './styled';
+import LoginButton from '@components/button';
 
 interface IProps {
   timeStart: string;
@@ -6,14 +7,14 @@ interface IProps {
   task: string;
 }
 
-const Event = ({ timeStart, timeEnd, task }: IProps) : JSX.Element => {
+const Event = ({ timeStart, timeEnd, task }: IProps): JSX.Element => {
   return (
     <StyledEventsContainer>
       <StyledEventContainer>
         <StyledEvent>
           {timeStart}-{timeEnd}
         </StyledEvent>
-        <div>{task}</div>
+        <StyledText>{task}</StyledText>
       </StyledEventContainer>
     </StyledEventsContainer>
   );

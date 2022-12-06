@@ -1,8 +1,8 @@
-import { IOpencage } from '@interfaces/IOpencage';
+import {Result} from '@interfaces/IOpencage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IInitialState {
-  geolocation: IOpencage | null;
+  geolocation: Result | null;
 }
 
 const initialState: IInitialState = {
@@ -13,7 +13,7 @@ const opencageSlice = createSlice({
   name: 'opencage/slice',
   initialState,
   reducers: {
-    setGeolocation: (state, action: PayloadAction<IOpencage>) => {
+    setGeolocation: (state, action: PayloadAction<Result>) => {
       state.geolocation = action.payload;
     },
   },

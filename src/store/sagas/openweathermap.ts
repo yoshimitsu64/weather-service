@@ -1,10 +1,10 @@
 import { takeLatest, call, put, spawn } from 'redux-saga/effects';
 import { fetchData } from '@api/fetchData';
-import { setOpenWeatherMap } from '@store/openweahermap/openWeatherMap.slice';
+import { setOpenWeather } from '@store/openWeather/openWeather.slice';
 import { IOpenweathermap } from '@interfaces/IOpenweathermap';
 import { requestWeather, userLocation } from '@store/sagaActions';
 import { IVisualCrossing } from '@interfaces/IVisualCrossing';
-import { setVisualCrossing } from '@store/visualCrossing/visualCrossing';
+import { setVisualCrossing } from '@store/visualCrossing/visualCrossing.slice';
 import { IOpencage } from '@interfaces/IOpencage';
 import { setGeolocation } from '@store/opencage/opencage.slice';
 
@@ -15,8 +15,7 @@ function* setOpenCageData(payload: ReturnType<typeof userLocation>) {
     fetchData,
     `https://api.opencagedata.com/geocode/v1/json?q=${payload.lat},${payload.lon}&key=${process.env.REACT_APP_OPENCAGEDATA_API_KEY}&language=en&no_annotations=1&pretty=1`,
   );
-  console.log(coordinates);
-  yield put(setGeolocation(coordinates));
+  yield put(setGeolocation(coordinates.results[0]));
 
   return coordinates;
 }
@@ -24,17 +23,18 @@ function* setOpenCageData(payload: ReturnType<typeof userLocation>) {
 function* setVisualCrossingData(payload: { lat: number; lng: number }) {
   const response: IVisualCrossing = yield call<FetchDataType<IVisualCrossing>>(
     fetchData,
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${payload.lat},${payload.lng}?unitGroup=metric&include=hours&key=LM3PQCN55VMUGTS9ZUS7PV9YU&contentType=json`,
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${payload.lat},${payload.lng}/next7days?unitGroup=metric&include=hours&key=LM3PQCN55VMUGTS9ZUS7PV9YU&contentType=json`,
   );
+
   yield put(setVisualCrossing(response));
 }
 
 function* setWeatherMapData(payload: { lat: number; lng: number }) {
   const response: IOpenweathermap = yield call<FetchDataType<IOpenweathermap>>(
     fetchData,
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${payload.lat}&lon=${payload.lng}&units=metric&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`,
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${payload.lat}&lon=${payload.lng}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`,
   );
-  yield put(setOpenWeatherMap(response));
+  yield put(setOpenWeather(response));
 }
 
 function* workerSaga(payload: ReturnType<typeof requestWeather>) {

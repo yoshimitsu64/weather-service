@@ -1,12 +1,11 @@
-import DayDate from '@components/date';
-import Location from '@components/location';
 import { StyledHeader } from './styled';
+import { StyledLoginPanelContainer } from '@components/content/styled';
 
 const Header = (): JSX.Element => {
   return (
     <StyledHeader>
-      <DayDate />
-      <Location />
+      <StyledLoginPanelContainer>
+      </StyledLoginPanelContainer>
     </StyledHeader>
   );
 };

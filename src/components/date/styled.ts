@@ -4,6 +4,8 @@ export const StyledDateContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
+  
 `;
 
 export const StyledHours = styled.div`

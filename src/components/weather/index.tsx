@@ -1,16 +1,26 @@
 import { StyledWeather } from '@components/weather/styled';
+import { useAppDispatch, useAppSelector } from '@hooks/store';
+import DayWeather from '@components/dayWeather';
+import { useEffect } from 'react';
+import { requestWeather } from '@store/sagaActions';
+import { selectDayWeather } from '@store/selectors';
 
-interface IProps {
-  temperature: number;
-  icon: string;
-}
+const Weather = (): JSX.Element => {
+  const city = useAppSelector((state) => state.accuweather.city);
+  const dayWeather = useAppSelector(selectDayWeather);
 
-const Weather = ({ temperature, icon }: IProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    city.lon && dispatch(requestWeather(city.lon as number, city.lat as number));
+  }, [city]);
+
   return (
-    <StyledWeather>
-      <img src={icon} alt="didnt load" />
-      {Math.round(temperature)}&#176;
-    </StyledWeather>
+    <>
+      {dayWeather!?.length > 0 && dayWeather!?.map((day) => (
+        <DayWeather temperature={day.temperature} icon={day.icon} key={day.key}/>
+      ))}
+    </>
   );
 };
 

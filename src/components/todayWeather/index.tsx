@@ -1,6 +1,8 @@
 import { useAppSelector } from '@hooks/store';
-import Carousel from 'react-elastic-carousel';
-import HourWeather from '@components/hourWeather';
+import WeatherSlider from '@components/weatherSlider';
+import TodayDate from '@components/date';
+import Input from '@components/input';
+import ButtonOptions from '@components/buttonOptions';
 import {
   StyledTodayWeatherContainer,
   StyledInfo,
@@ -8,37 +10,64 @@ import {
   StyledDegrees,
   StyledDescription,
   StyledTodayBox,
+  StyledHeader,
+  StyledCalendar,
 } from '@components/todayWeather/styled';
+import React, { useRef, useState } from 'react';
+import EventsModal from '@components/eventsModal';
 
 const TodayWeather = (): JSX.Element => {
-  const todayWeather = useAppSelector((state) => state.visualCrossing.weather);
+  const visualCrossingWeather = useAppSelector((state) => state.visualCrossing.weather);
+  const openWeather = useAppSelector((state) => state.openWeatherMap.weather);
+  const selectedService = useAppSelector((state) => state.selectedService.service);
+  const calendarRef = useRef<HTMLSpanElement>(null);
+
+  const [isOpenCalendar, setIsOpenCalendar] = useState<boolean>(false);
+  const [coordinates, setCoordinates] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  const handleClick =
+    () =>
+    (e: React.MouseEvent<HTMLSpanElement>): void => {
+      setIsOpenCalendar(!isOpenCalendar);
+      setCoordinates({ x: calendarRef.current!.offsetLeft, y: calendarRef.current!.offsetTop });
+    };
 
   return (
     <StyledTodayBox>
+      <StyledHeader>
+        <TodayDate />
+        <ButtonOptions />
+        <Input />
+        <EventsModal coordinates={coordinates} display={isOpenCalendar ? 'block' : 'none'} />
+      </StyledHeader>
+      <StyledCalendar onClick={handleClick()} ref={calendarRef}>
+        <img src="/SVGS/events-calendar-svgrepo-com.svg" width={40} height={40} />
+      </StyledCalendar>
       <StyledTodayWeatherContainer>
         <StyledInfo>
-          <StyledDegrees>{Math.round(todayWeather!?.days[0].temp)}&#176;C</StyledDegrees>
+          <StyledDegrees>
+            {Math.round(
+              selectedService === 'OpenWeatherMap'
+                ? openWeather!?.daily[0].temp.day
+                : visualCrossingWeather!?.days[0].temp,
+            )}
+            &#176;C
+          </StyledDegrees>
         </StyledInfo>
         <StyledImage>
-          <img src={`/SVGS/${todayWeather?.days[0].icon}.svg`} />
+          <img
+            src={
+              selectedService === 'OpenWeatherMap'
+                ? `http://openweathermap.org/img/wn/${
+                    openWeather!?.daily[0].weather[0].icon
+                  }@2x.png`
+                : `/SVGS/${visualCrossingWeather?.days[0].icon}.svg`
+            }
+          />
         </StyledImage>
       </StyledTodayWeatherContainer>
-      <StyledDescription>{todayWeather!?.days[0].description}</StyledDescription>
-      {todayWeather!?.days.length > 0 && (
-        // @ts-ignore
-        <Carousel isRTL={false} itemsToShow={3} itemsToScroll={3} key={1}>
-          {todayWeather?.days[0].hours.map((hour) => {
-            return (
-              <HourWeather
-                key={hour.datetime}
-                datetime={hour.datetime.slice(0, 5)}
-                temp={hour.temp}
-                icon={hour.icon}
-              />
-            );
-          })}
-        </Carousel>
-      )}
+      <StyledDescription>{visualCrossingWeather!?.days[0].description}</StyledDescription>
+      {visualCrossingWeather!?.days.length > 0 && <WeatherSlider />}
     </StyledTodayBox>
   );
 };

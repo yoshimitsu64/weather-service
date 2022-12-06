@@ -6,6 +6,5 @@ function getPosition(): Promise<GeolocationPosition> {
 
 export async function getCoordinates() {
   const position: GeolocationPosition = await getPosition();
-  console.log(position);
   return position;
 }

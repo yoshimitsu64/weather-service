@@ -32,6 +32,7 @@ export interface Components {
   _type: string;
   building: string;
   city: string;
+  state:string;
   city_district: string;
   continent: string;
   country: string;

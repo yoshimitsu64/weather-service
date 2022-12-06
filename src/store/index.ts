@@ -13,11 +13,12 @@ import storage from 'redux-persist/es/storage';
 import accuweatherSlice from '@store/accuweather/accuweather.slice';
 import calendarSlice from '@store/calendar/calendar.slice';
 import createSagaMiddleware from 'redux-saga';
-import openWeatherMapSlice from '@store/openweahermap/openWeatherMap.slice';
-import visualCrossingSlice from '@store/visualCrossing/visualCrossing';
+import openWeatherMapSlice from '@store/openWeather/openWeather.slice';
+import visualCrossingSlice from '@store/visualCrossing/visualCrossing.slice';
 import opencageSlice from '@store/opencage/opencage.slice';
 import { accuweatherApi } from './accuweather/accuweather.api';
 import { weatherMapWatcher } from '@store/sagas/openweathermap';
+import selectedServiceSlice from "@store/selectedService/selectedService.slice";
 
 const accuweatherPersistConfig = {
   key: 'accuweather',
@@ -46,6 +47,7 @@ const reducer = combineReducers({
   openWeatherMap: persistReducer(openWeatherMapPersistConfig, openWeatherMapSlice),
   visualCrossing: persistReducer(visualCrossingPersistConfig, visualCrossingSlice),
   openCage: persistReducer(openCagePeristConfig, opencageSlice),
+  selectedService:selectedServiceSlice
 });
 
 const sagaMiddleware = createSagaMiddleware();

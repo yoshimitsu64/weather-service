@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import { days, months } from '@constants/date';
+import { convertDate } from '@helpers/convertDate';
 import { StyledDateContainer, StyledDate, StyledHours } from './styled';
 
-const DayDate = () : JSX.Element => {
+const DayDate = (): JSX.Element => {
   const [time, setTime] = useState<Date>(() => new Date());
 
   useEffect(() => {
@@ -17,9 +18,7 @@ const DayDate = () : JSX.Element => {
 
   return (
     <StyledDateContainer>
-      <StyledHours>
-        {time.getHours()}:{time.getMinutes()}
-      </StyledHours>
+      <StyledHours>{convertDate(time).toString()}</StyledHours>
       <StyledDate>
         {`${days[time.getDay()]}, ${
           months[time.getMonth()]

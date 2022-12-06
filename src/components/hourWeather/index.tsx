@@ -13,7 +13,7 @@ const HourWeather = ({ datetime, temp, icon }: IProps): JSX.Element => {
     <StyledHourWeatherContainer>
       <StyledTemp>{Math.round(temp)}&#176;</StyledTemp>
       <StyledIcon>
-        <img src={`/SVGS/${icon}.svg`}/>
+        <img width={70} height={70} src={icon} />
       </StyledIcon>
       <StyledTime>{datetime}</StyledTime>
     </StyledHourWeatherContainer>

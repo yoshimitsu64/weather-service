@@ -30,7 +30,7 @@ const LoginButton = () : JSX.Element => {
     }
   };
 
-  return <StyledButton onClick={handleClick()}>{isLoggedIn ? 'Sign out' : 'Sign in'}</StyledButton>;
+  return <StyledButton onClick={handleClick()}>{isLoggedIn ? 'Sign out' : 'Sign in google'}</StyledButton>;
 };
 
 export default LoginButton;

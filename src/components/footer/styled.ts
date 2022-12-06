@@ -5,11 +5,11 @@ export const StyledFooter = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 200px;
+  height: 150px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: rgba(56, 56, 128, 0.8);
+  background: rgba(56, 56, 128, 0.9);
 `
 
 export const StyledWeatherContainer = styled.div`

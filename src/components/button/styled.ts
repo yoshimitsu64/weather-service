@@ -14,6 +14,7 @@ export const StyledButton = styled.div`
   color: rgb(104, 85, 224);
   background-color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(104, 85, 224, 1);
+  user-select: none;
 
   &:hover {
     color: white;

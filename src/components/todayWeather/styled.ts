@@ -3,15 +3,16 @@ import styled from 'styled-components';
 export const StyledTodayBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
-  height: 350px;
-  background: #3494E6;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #EC6EAD, #3494E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  width: 900px;
+  height: 450px;
+  background: linear-gradient(to right, #ec6ead, #3494e6);
   border-radius: 20px;
-  padding: 20px 20px 0 20px;
-  margin-top: 20px;
+  padding: 20px 40px 0 40px;
+`;
+
+export const StyledHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const StyledTodayWeatherContainer = styled.div`
@@ -39,3 +40,9 @@ export const StyledDescription = styled.span`
   margin-top: 10px;
   font-size: 25px;
 `;
+
+export const StyledCalendar = styled.span`
+  margin-top: 10px;
+  width: min-content;
+  cursor: pointer;
+`

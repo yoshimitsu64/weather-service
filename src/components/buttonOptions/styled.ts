@@ -4,19 +4,18 @@ export const StyledButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 100%;
 `;
 
 export const StyledButton = styled.button`
-  background-color: #272343;
-  width: 200px;
-  font-size: 23px;
+  background-color: ${({ theme }) => theme.colors.backgroundColor[1]};
+  width: ${({ theme }) => theme?.sizes.width[6]}px;
+  font-size: ${({ theme }) => theme.fontSizes.fontSize[8]}px;
   display: flex;
-  color: white;
-  border-radius: 5px;
+  color: ${({ theme }) => theme.colors.color[0]};
+  border-radius: ${({ theme }) => theme.borders.borderRadius[1]}px;
   cursor: pointer;
   justify-content: space-between;
-  padding: 0 5px 0 5px;
+  padding: ${({ theme }) => theme.space.padding[1]};
 
   &:active {
     transform: scale(0.97);
@@ -25,29 +24,28 @@ export const StyledButton = styled.button`
 
 export const StyledOptionsContainer = styled.div`
   position: relative;
-  color: white;
+  color: ${({ theme }) => theme.colors.color[0]};
 `;
 
 export const StyledOptions = styled.ul`
-  margin-top: 5px;
-  border-radius: 10px;
-  background-color: #272343;
+  margin-top: ${({ theme }) => theme.space.marginTop[1]}px;
+  border-radius: ${({ theme }) => theme.borders.borderRadius[3]}px;
+  background-color: ${({ theme }) => theme.colors.backgroundColor[1]};
   list-style-type: none;
   position: absolute;
-  width: 100%;
-  
+  width: ${({ theme }) => theme?.sizes.width[4]}%;
 `;
 
 export const StyledOption = styled.li`
-  font-size: 21px;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-bottom: 5px;
+  font-size: ${({ theme }) => theme.fontSizes.fontSize[6]}px;
+  margin-right: ${({ theme }) => theme.space.marginRight[0]}px;
+  margin-left: ${({ theme }) => theme.space.marginLeft[0]}px;
+  margin-bottom: ${({ theme }) => theme.space.marginBottom[0]}px;
 
   border-radius: inherit;
 
   &:hover {
-    background-color: #407088;
+    background-color: ${({ theme }) => theme.colors.color[2]};
     cursor: pointer;
   }
 `;

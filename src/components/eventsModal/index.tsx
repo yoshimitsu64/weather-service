@@ -1,40 +1,88 @@
 import ReactDOM from 'react-dom';
+import {
+  forwardRef,
+  MutableRefObject,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 
-import { StyledEventsContainer } from '@components/eventsModal/styled';
-import { convertDate } from '@helpers/convertDate';
-import Event from '@components/event';
-import { useAppSelector } from '@hooks/store';
-import LoginButton from '@components/button';
+import { selectCalendar } from '@store/selectors/storeSelectors';
+import { convertDateTimeToHours } from '@helpers/convertDateTimeToHours';
+import { useAppSelector } from '@hooks/storeHooks';
 import { usePortal } from '@hooks/usePortal';
+import Event from '@components/event';
+import LoginButton from '@components/button';
+import {
+  StyledEventsContainer,
+  StyledModalContainer,
+  StyledCross,
+  StyledLoginEventsContainer,
+} from '@components/eventsModal/styled';
 
 export interface IEventsModalProps {
-  coordinates: { x: number; y: number };
-  display: 'block' | 'none';
+  display: 'none' | 'block';
 }
 
-const EventsModal = ({ coordinates, display }: IEventsModalProps): JSX.Element => {
-  const events = useAppSelector((state) => state.calendar.events);
+export type ForwardRef = {
+  closeModal: (param: boolean) => void;
+};
+
+const EventsModal = forwardRef<ForwardRef>((_, forwardedRef) => {
+  const events = useAppSelector(selectCalendar);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const elem = usePortal();
 
-  return ReactDOM.createPortal(
-    <>
-      <StyledEventsContainer coordinates={coordinates} display={display}>
-        <LoginButton />
-        {events?.length > 0 &&
-          events.map((event) => {
-            const eventProps = {
-              timeStart: convertDate(event.start.dateTime),
-              timeEnd: convertDate(event.end.dateTime),
-              task: event.summary,
-            };
+  useImperativeHandle(forwardedRef, () => ({
+    closeModal: (param: boolean) => {
+      setIsOpened(param);
+    },
+  }));
 
-            return <Event key={event.iCalUID} {...eventProps} />;
-          })}
-      </StyledEventsContainer>
-    </>,
+  const closeModal = () => () => {
+    (forwardedRef as MutableRefObject<ForwardRef>)!.current.closeModal(false);
+  };
+
+  useEffect(() => {
+    const closeDropdown = (e: MouseEvent) => {
+      if ((e.composedPath()[0] as HTMLInputElement) === containerRef.current) {
+        setIsOpened(false);
+      }
+    };
+    document.body.addEventListener('click', closeDropdown);
+
+    return () => document.removeEventListener('click', closeDropdown);
+  }, []);
+
+  return ReactDOM.createPortal(
+    <StyledModalContainer display={isOpened ? 'block' : 'none'} ref={containerRef}>
+      <StyledLoginEventsContainer>
+        <StyledEventsContainer>
+          <LoginButton />
+        </StyledEventsContainer>
+        {events?.length > 0 && (
+          <StyledEventsContainer>
+            {events.map((event) => {
+              const eventProps = {
+                timeStart: convertDateTimeToHours(event.start.dateTime),
+                timeEnd: convertDateTimeToHours(event.end.dateTime),
+                task: event.summary,
+              };
+
+              return <Event key={event.iCalUID} {...eventProps} />;
+            })}
+          </StyledEventsContainer>
+        )}
+      </StyledLoginEventsContainer>
+      <StyledCross src="/SVGS/close.svg" onClick={closeModal()} />
+    </StyledModalContainer>,
     elem,
   );
-};
+});
 
 export default EventsModal;

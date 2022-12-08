@@ -1,17 +1,25 @@
-import {StyledDayWeather} from "@components/dayWeather/styled";
+import { days } from '@constants/date';
+import {
+  StyledDayWeather,
+  StyledImage,
+  StyledDay,
+  StyledTemperature,
+} from '@components/dayWeather/styled';
 
 interface IProps {
-    temperature: number;
-    icon: string;
+  temperature: number;
+  icon: string;
+  day: number;
 }
 
-const DayWeather = ({ temperature, icon }: IProps): JSX.Element => {
-    return (
-        <StyledDayWeather>
-            <img src={icon} alt="didnt load" width={100} />
-            {Math.round(temperature)}&#176;
-        </StyledDayWeather>
-    );
+const DayWeather = ({ temperature, icon, day }: IProps): JSX.Element => {
+  return (
+    <StyledDayWeather>
+      <StyledDay>{days[new Date(day * 1000).getDay()]}</StyledDay>
+      <StyledImage src={icon} alt="didnt load" />
+      <StyledTemperature>{Math.round(temperature)}&#176;</StyledTemperature>
+    </StyledDayWeather>
+  );
 };
 
 export default DayWeather;

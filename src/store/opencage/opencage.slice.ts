@@ -1,4 +1,4 @@
-import {Result} from '@interfaces/IOpencage';
+import { Result } from '@interfaces/IOpencage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IInitialState {

@@ -18,7 +18,7 @@ const initialState: IInitialState = {
 
 const accuWeatherSlice = createSlice({
   name: 'accuweather/slice',
-  initialState: initialState,
+  initialState,
   reducers: {
     setCity: (state, action) => {
       state.city = {

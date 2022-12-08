@@ -5,20 +5,19 @@ export const StyledButton = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borders.borderRadius[0]}px;
   font-weight: 600;
-  width: 200px;
-  padding: 10px 0;
+  width: ${({ theme }) => theme?.sizes.width[6]}px;
+  padding: ${({ theme }) => theme.space.padding[0]};
   box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
   transition: 0.3s;
-  color: rgb(104, 85, 224);
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(104, 85, 224, 1);
+  color: ${({ theme }) => theme.colors.backgroundColor[4]};
+  background-color: ${({ theme }) => theme.colors.backgroundColor[0]};
+  border: ${({ theme }) => theme.borders.border[1]};
   user-select: none;
 
   &:hover {
-    color: white;
-    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
-    background-color: rgba(104, 85, 224, 1);
+    color: ${({ theme }) => theme.colors.color[0]};
+    background-color: ${({ theme }) => theme.colors.backgroundColor[4]};
   }
 `;

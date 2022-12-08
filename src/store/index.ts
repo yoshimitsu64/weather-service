@@ -9,36 +9,22 @@ import {
   REGISTER,
   persistStore,
 } from 'redux-persist';
-import storage from 'redux-persist/es/storage';
+import createSagaMiddleware from 'redux-saga';
+
+import {
+  openCagePersistConfig,
+  visualCrossingPersistConfig,
+  accuweatherPersistConfig,
+  openWeatherMapPersistConfig,
+} from '@store/persistConfig';
 import accuweatherSlice from '@store/accuweather/accuweather.slice';
 import calendarSlice from '@store/calendar/calendar.slice';
-import createSagaMiddleware from 'redux-saga';
 import openWeatherMapSlice from '@store/openWeather/openWeather.slice';
 import visualCrossingSlice from '@store/visualCrossing/visualCrossing.slice';
 import opencageSlice from '@store/opencage/opencage.slice';
 import { accuweatherApi } from './accuweather/accuweather.api';
-import { weatherMapWatcher } from '@store/sagas/openweathermap';
-import selectedServiceSlice from "@store/selectedService/selectedService.slice";
-
-const accuweatherPersistConfig = {
-  key: 'accuweather',
-  storage,
-};
-
-const openCagePeristConfig = {
-  key: 'openCage',
-  storage,
-};
-
-const openWeatherMapPersistConfig = {
-  key: 'openWeatherMap',
-  storage,
-};
-
-const visualCrossingPersistConfig = {
-  key: 'visualCrossing',
-  storage,
-};
+import { rootSaga } from '@store/sagas/openweathermap';
+import selectedServiceSlice from '@store/selectedService/selectedService.slice';
 
 const reducer = combineReducers({
   [accuweatherApi.reducerPath]: accuweatherApi.reducer,
@@ -46,8 +32,8 @@ const reducer = combineReducers({
   calendar: calendarSlice,
   openWeatherMap: persistReducer(openWeatherMapPersistConfig, openWeatherMapSlice),
   visualCrossing: persistReducer(visualCrossingPersistConfig, visualCrossingSlice),
-  openCage: persistReducer(openCagePeristConfig, opencageSlice),
-  selectedService:selectedServiceSlice
+  openCage: persistReducer(openCagePersistConfig, opencageSlice),
+  selectedService: selectedServiceSlice,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -64,7 +50,7 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-sagaMiddleware.run(weatherMapWatcher);
+sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

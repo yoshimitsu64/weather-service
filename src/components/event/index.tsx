@@ -1,5 +1,4 @@
 import { StyledEvent, StyledEventsContainer, StyledEventContainer, StyledText } from './styled';
-import LoginButton from '@components/button';
 
 interface IProps {
   timeStart: string;

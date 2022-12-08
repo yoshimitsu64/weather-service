@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {ISelectedServices} from "@interfaces/ISelectedServices";
+import { ISelectedServices } from '@interfaces/ISelectedServices';
 
-const initialState : ISelectedServices = {
+const initialState: ISelectedServices = {
   service: 'OpenWeatherMap',
 };
 

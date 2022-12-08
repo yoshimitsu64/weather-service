@@ -1,8 +1,16 @@
-import { useAppSelector } from '@hooks/store';
+import { Ref, useRef, useState } from 'react';
+
+import {
+  selectOpenWeather,
+  selectSelectedService,
+  selectVisualCrossing,
+} from '@store/selectors/storeSelectors';
+import { useAppSelector } from '@hooks/storeHooks';
 import WeatherSlider from '@components/weatherSlider';
 import TodayDate from '@components/date';
 import Input from '@components/input';
 import ButtonOptions from '@components/buttonOptions';
+import EventsModal, { ForwardRef } from '@components/eventsModal';
 import {
   StyledTodayWeatherContainer,
   StyledInfo,
@@ -12,62 +20,55 @@ import {
   StyledTodayBox,
   StyledHeader,
   StyledCalendar,
+  StyledCalendarImage,
 } from '@components/todayWeather/styled';
-import React, { useRef, useState } from 'react';
-import EventsModal from '@components/eventsModal';
 
 const TodayWeather = (): JSX.Element => {
-  const visualCrossingWeather = useAppSelector((state) => state.visualCrossing.weather);
-  const openWeather = useAppSelector((state) => state.openWeatherMap.weather);
-  const selectedService = useAppSelector((state) => state.selectedService.service);
-  const calendarRef = useRef<HTMLSpanElement>(null);
+  const ref = useRef<ForwardRef>();
+
+  const visualCrossingWeather = useAppSelector(selectVisualCrossing);
+  const openWeather = useAppSelector(selectOpenWeather);
+  const selectedService = useAppSelector(selectSelectedService);
 
   const [isOpenCalendar, setIsOpenCalendar] = useState<boolean>(false);
-  const [coordinates, setCoordinates] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  const handleClick =
-    () =>
-    (e: React.MouseEvent<HTMLSpanElement>): void => {
-      setIsOpenCalendar(!isOpenCalendar);
-      setCoordinates({ x: calendarRef.current!.offsetLeft, y: calendarRef.current!.offsetTop });
-    };
+  const handleClick = () => (): void => {
+    setIsOpenCalendar(!isOpenCalendar);
+    ref.current?.closeModal(true);
+  };
 
   return (
     <StyledTodayBox>
       <StyledHeader>
         <TodayDate />
-        <ButtonOptions />
         <Input />
-        <EventsModal coordinates={coordinates} display={isOpenCalendar ? 'block' : 'none'} />
+        <ButtonOptions />
+        <EventsModal ref={ref as Ref<ForwardRef>} />
       </StyledHeader>
-      <StyledCalendar onClick={handleClick()} ref={calendarRef}>
-        <img src="/SVGS/events-calendar-svgrepo-com.svg" width={40} height={40} />
+      <StyledCalendar onClick={handleClick()}>
+        <StyledCalendarImage src="/SVGS/events-calendar-svgrepo-com.svg" alt="didnt load" />
       </StyledCalendar>
       <StyledTodayWeatherContainer>
         <StyledInfo>
           <StyledDegrees>
             {Math.round(
               selectedService === 'OpenWeatherMap'
-                ? openWeather!?.daily[0].temp.day
-                : visualCrossingWeather!?.days[0].temp,
+                ? openWeather?.daily[0].temp.day
+                : visualCrossingWeather?.days[0].temp,
             )}
             &#176;C
           </StyledDegrees>
         </StyledInfo>
-        <StyledImage>
-          <img
-            src={
-              selectedService === 'OpenWeatherMap'
-                ? `http://openweathermap.org/img/wn/${
-                    openWeather!?.daily[0].weather[0].icon
-                  }@2x.png`
-                : `/SVGS/${visualCrossingWeather?.days[0].icon}.svg`
-            }
-          />
-        </StyledImage>
+        <StyledImage
+          src={
+            selectedService === 'OpenWeatherMap'
+              ? `http://openweathermap.org/img/wn/${openWeather?.daily[0].weather[0].icon}@2x.png`
+              : `/SVGS/${visualCrossingWeather?.days[0].icon}.svg`
+          }
+        />
       </StyledTodayWeatherContainer>
-      <StyledDescription>{visualCrossingWeather!?.days[0].description}</StyledDescription>
-      {visualCrossingWeather!?.days.length > 0 && <WeatherSlider />}
+      <StyledDescription>{visualCrossingWeather?.days[0].description}</StyledDescription>
+      {visualCrossingWeather?.days.length > 0 && <WeatherSlider />}
     </StyledTodayBox>
   );
 };

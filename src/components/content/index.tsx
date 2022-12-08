@@ -1,17 +1,19 @@
-import { useAppDispatch, useAppSelector } from '@hooks/store';
-import TodayWeather from '@components/todayWeather';
 import { useEffect } from 'react';
-import { requestWeather } from '@store/sagaActions';
+
+import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+import TodayWeather from '@components/todayWeather';
+import { requestWeather } from '@store/actions';
 import { StyledContent } from '@components/content/styled';
+import { selectOpenCage } from '@store/selectors/storeSelectors';
 
 const Content = (): JSX.Element => {
-  const geolocation = useAppSelector((state) => state.openCage.geolocation);
+  const geolocation = useAppSelector(selectOpenCage);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     !geolocation &&
-      navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
+      navigator.geolocation.getCurrentPosition((position) => {
         dispatch(requestWeather(position.coords.latitude, position.coords.longitude));
       });
   }, []);

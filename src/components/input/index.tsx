@@ -3,9 +3,10 @@ import { ChangeEvent, useState, memo, useEffect, useRef } from 'react';
 import { useSearchCityQuery } from '@store/accuweather/accuweather.api';
 import { useDebounce } from '@hooks/useDebounce';
 import { IDate, IPlace } from '@interfaces/IPlace';
-import { useAppDispatch, useAppSelector } from '@hooks/store';
+import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 
-import { requestWeather } from '@store/sagaActions';
+import { requestWeather } from '@store/actions';
+import { selectOpenCage } from '@store/selectors/storeSelectors';
 import {
   StyledInput,
   StyledInputContainer,
@@ -15,12 +16,16 @@ import {
 } from './styled';
 
 const Input = (): JSX.Element => {
-  const cityStorage = useAppSelector((state) => state.openCage.geolocation);
-  const dispatch = useAppDispatch();
+  const cityStorage = useAppSelector(selectOpenCage);
+
   const inputRef = useRef<HTMLInputElement>(null);
+
   const [value, setValue] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const debounce = useDebounce(value, 1000);
+
+  const dispatch = useAppDispatch();
 
   const { data: places } = useSearchCityQuery<IPlace>(debounce, { skip: !debounce });
 
@@ -29,9 +34,9 @@ const Input = (): JSX.Element => {
   };
 
   useEffect(() => {
-    cityStorage!?.components.city
-      ? setValue(cityStorage!?.components.city)
-      : setValue(cityStorage!?.components.state);
+    cityStorage?.components.city
+      ? setValue(cityStorage?.components.city)
+      : setValue(cityStorage?.components.state);
   }, [cityStorage]);
 
   const handleClick = (latitude: number, longitude: number, city: string) => () => {
@@ -66,7 +71,7 @@ const Input = (): JSX.Element => {
         ref={inputRef}
       />
       <StyledDropDownContainer>
-        {places?.length! > 0 && isOpen && (
+        {places?.length > 0 && isOpen && (
           <StyledDropDown>
             {places?.map((item: IDate) => {
               return (

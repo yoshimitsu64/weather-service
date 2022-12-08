@@ -1,10 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {IDate} from '@interfaces/IPlace';
+
+import { IDate } from '@interfaces/IPlace';
+import { accuWeatherApiUrl } from '@constants/apiUrls';
 
 export const accuweatherApi = createApi({
   reducerPath: 'accuweather/api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://wft-geo-db.p.rapidapi.com/v1',
+    baseUrl: accuWeatherApiUrl,
   }),
   endpoints: (build) => ({
     searchCity: build.query<IDate[], string>({
@@ -14,7 +16,7 @@ export const accuweatherApi = createApi({
           namePrefix: cityName,
         },
         headers: {
-          'X-RapidAPI-Key': 'c15fa3545emsha363e684e749560p19a2d8jsn0959c117a49a',
+          'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_ACCUWEATHER_KEY,
           'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
         },
       }),

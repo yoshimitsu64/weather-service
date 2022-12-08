@@ -1,4 +1,3 @@
 export interface ISelectedServices {
-    service: 'OpenWeatherMap' | 'VisualCrossing';
-
+  service: 'OpenWeatherMap' | 'VisualCrossing';
 }

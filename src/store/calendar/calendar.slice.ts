@@ -11,7 +11,7 @@ const initialState: IInitialState = {
 
 const calendarSlice = createSlice({
   name: 'calendar/slice',
-  initialState: initialState,
+  initialState,
   reducers: {
     setEvents: (state, action: PayloadAction<IEvent[]>) => {
       state.events = action.payload;

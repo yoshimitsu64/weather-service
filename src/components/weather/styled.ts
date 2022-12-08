@@ -1,10 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledWeather = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  font-size: 30px;
-`
+  height: ${({ theme }) => theme?.sizes.height[4]}%;
+  width: ${({ theme }) => theme?.sizes.width[4]}%;
+  justify-content: space-between;
+`;

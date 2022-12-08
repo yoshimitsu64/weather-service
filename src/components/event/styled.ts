@@ -5,9 +5,9 @@ export const StyledEventsContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: 60px;
-  margin-right: 30px;
-  width: 100%;
+  min-height: ${({ theme }) => theme?.sizes.minHeight[0]}px;
+  margin-right: ${({ theme }) => theme.space.marginRight[1]}px;
+  width: ${({ theme }) => theme?.sizes.width[4]}%;
 `;
 
 export const StyledEventContainer = styled.div`
@@ -19,18 +19,18 @@ export const StyledEventContainer = styled.div`
 `;
 
 export const StyledEvent = styled.div`
-  min-width: 110px;
-  height: 40px;
-  background-color: rgba(64, 0, 130);
-  border-radius: 40px;
+  min-width: ${({ theme }) => theme?.sizes.width[5]}px;
+  height: ${({ theme }) => theme?.sizes.height[0]}px;
+  background-color: ${({ theme }) => theme.colors.backgroundColor[4]};
+  border-radius: ${({ theme }) => theme.borders.borderRadius[5]}px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  margin-right: 30px;
+  color: ${({ theme }) => theme.colors.color[0]};
+  margin-right: ${({ theme }) => theme.space.marginRight[1]}px;
 `;
 
 export const StyledText = styled.div`
-  font-size: 28px;
-  min-width: 100%;
+  font-size: ${({ theme }) => theme.fontSizes.fontSize[5]}px;
+  min-width: ${({ theme }) => theme?.sizes.width[4]}%;
 `;

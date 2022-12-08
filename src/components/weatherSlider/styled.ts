@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledWeatherSlider = styled.div`
-  margin-top: 20px;
+  margin-top: ${({ theme }) => theme.space.marginTop[3]}px;
   display: flex;
   justify-content: space-between;
   align-items: center;

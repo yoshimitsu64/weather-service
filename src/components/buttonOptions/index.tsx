@@ -1,8 +1,10 @@
-import { services } from '@constants/services';
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@hooks/store';
+
+import { services } from '@constants/services';
+import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { setSelectedService } from '@store/selectedService/selectedService.slice';
 import { ISelectedServices } from '@interfaces/ISelectedServices';
+import { selectSelectedService } from '@store/selectors/storeSelectors';
 import {
   StyledButton,
   StyledOptions,
@@ -12,7 +14,8 @@ import {
 } from '@components/buttonOptions/styled';
 
 const ButtonOptions = (): JSX.Element => {
-  const selectedService = useAppSelector((state) => state.selectedService.service);
+  const selectedService = useAppSelector(selectSelectedService);
+
   const dispatch = useAppDispatch();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);

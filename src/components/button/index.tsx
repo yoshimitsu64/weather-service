@@ -2,10 +2,10 @@ import { useState } from 'react';
 import ApiCalendar from 'react-google-calendar-api';
 
 import { setEvents } from '@store/calendar/calendar.slice';
-import { useAppDispatch } from '@hooks/store';
+import { useAppDispatch } from '@hooks/storeHooks';
 import { StyledButton } from '@components/button/styled';
 
-const LoginButton = () : JSX.Element => {
+const LoginButton = (): JSX.Element => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
@@ -30,7 +30,11 @@ const LoginButton = () : JSX.Element => {
     }
   };
 
-  return <StyledButton onClick={handleClick()}>{isLoggedIn ? 'Sign out' : 'Sign in google'}</StyledButton>;
+  return (
+    <StyledButton onClick={handleClick()}>
+      {isLoggedIn ? 'Sign out' : 'Sign in google'}
+    </StyledButton>
+  );
 };
 
 export default LoginButton;

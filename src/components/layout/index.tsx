@@ -1,11 +1,6 @@
-import { StyledLayout, StyledImage } from './styled';
-import { useAppSelector } from '@hooks/store';
-import { useEffect, useState } from 'react';
-import {
-  setOpenWeatherBackgroundImage,
-  setVisualCrossingBackgroundImage,
-} from '@helpers/setBackgroundImage';
-import { selectImageSrc } from '@store/selectors';
+import { useAppSelector } from '@hooks/storeHooks';
+import { selectImageSrc } from '@store/selectors/selectors';
+import { StyledLayout } from './styled';
 
 interface ILayoutProps {
   children: JSX.Element[];

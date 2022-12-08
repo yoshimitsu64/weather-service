@@ -8,7 +8,7 @@ interface ILayoutProps {
 
 const Layout = ({ children }: ILayoutProps): JSX.Element => {
   const imageSrc = useAppSelector(selectImageSrc);
-
+  console.log(imageSrc);
   return <StyledLayout image={imageSrc}>{children}</StyledLayout>;
 };
 

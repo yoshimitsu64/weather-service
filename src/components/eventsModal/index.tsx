@@ -79,7 +79,7 @@ const EventsModal = forwardRef<ForwardRef>((_, forwardedRef) => {
           </StyledEventsContainer>
         )}
       </StyledLoginEventsContainer>
-      <StyledCross src="/SVGS/close.svg" onClick={closeModal()} />
+      <StyledCross src={`${process.env.PUBLIC_URL}/SVGS/close.svg`} onClick={closeModal()} />
     </StyledModalContainer>,
     elem,
   );

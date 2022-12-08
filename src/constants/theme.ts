@@ -22,6 +22,7 @@ export const theme: DefaultTheme = {
   colors: {
     color: ['#FFFFFF', '#000000', '#407088', '#272343', '#6855e0'],
     backgroundColor: ['#FFFFFF', '#272343', '#000000', '#685518', '#400082', '#717E8E'],
+    rgbaColor: ['0,0,0,0.5', '104,85,224,0.2', '56,56,128,0.9', '104,85,224,1'],
   },
   borders: {
     border: [

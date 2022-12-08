@@ -2,6 +2,7 @@
   "name": "weather-service",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yoshimitsu64.github.io/weather-service/",
   "dependencies": {
     "@react-oauth/google": "^0.5.0",
     "@reduxjs/toolkit": "^1.9.0",
@@ -12,6 +13,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1",
@@ -32,7 +34,9 @@
     "build": "react-app-rewired build",
     "lint": "eslint --ext .ts, .tsx src --fix",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [

@@ -10,7 +10,7 @@ declare module 'styled-components' {
       marginTop: Array<number>;
       marginRight: Array<number>;
       marginLeft: Array<number>;
-      marginBottom:Array<number>
+      marginBottom: Array<number>;
     };
     sizes: {
       width: Array<number>;
@@ -23,6 +23,7 @@ declare module 'styled-components' {
     colors: {
       backgroundColor: Array<string>;
       color: Array<string>;
+      rgbaColor: Array<string>;
     };
     borders: {
       borderRadius: Array<number>;

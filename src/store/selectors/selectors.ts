@@ -47,7 +47,7 @@ export const selectHourWeather = createSelector(
           key: hour.datetime,
           datetime: hour.datetime.slice(0, 5),
           temp: hour.temp,
-          icon: `/SVGS/${hour.icon}.svg`,
+          icon: `${process.env.PUBLIC_URL}/SVGS/${hour.icon}.svg`,
         }),
       );
     }
@@ -83,7 +83,7 @@ export const selectDayWeather = createSelector(
         arr.push({
           temperature: day.temp,
           day: day.datetimeEpoch,
-          icon: `/SVGS/${day.icon}.svg`,
+          icon: `${process.env.PUBLIC_URL}/SVGS/${day.icon}.svg`,
           key: `${day.temp}-${day.moonphase}-${day.description}-${day.solarradiation}`,
         }),
       );

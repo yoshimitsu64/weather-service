@@ -9,7 +9,7 @@ export const StyledButton = styled.div`
   font-weight: 600;
   width: ${({ theme }) => theme?.sizes.width[6]}px;
   padding: ${({ theme }) => theme.space.padding[0]};
-  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+  box-shadow: 0 0 20px rgba(${({ theme }) => theme.colors.rgbaColor[1]});
   transition: 0.3s;
   color: ${({ theme }) => theme.colors.backgroundColor[4]};
   background-color: ${({ theme }) => theme.colors.backgroundColor[0]};

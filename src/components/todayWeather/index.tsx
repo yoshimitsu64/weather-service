@@ -46,7 +46,10 @@ const TodayWeather = (): JSX.Element => {
         <EventsModal ref={ref as Ref<ForwardRef>} />
       </StyledHeader>
       <StyledCalendar onClick={handleClick()}>
-        <StyledCalendarImage src="/SVGS/events-calendar-svgrepo-com.svg" alt="didnt load" />
+        <StyledCalendarImage
+          src={`${process.env.PUBLIC_URL}/SVGS/weekly-calendar-monthly-calendar-svgrepo-com.svg`}
+          alt="didnt load"
+        />
       </StyledCalendar>
       <StyledTodayWeatherContainer>
         <StyledInfo>
@@ -63,7 +66,7 @@ const TodayWeather = (): JSX.Element => {
           src={
             selectedService === 'OpenWeatherMap'
               ? `http://openweathermap.org/img/wn/${openWeather?.daily[0].weather[0].icon}@2x.png`
-              : `/SVGS/${visualCrossingWeather?.days[0].icon}.svg`
+              : `${process.env.PUBLIC_URL}/SVGS/${visualCrossingWeather?.days[0].icon}.svg`
           }
         />
       </StyledTodayWeatherContainer>

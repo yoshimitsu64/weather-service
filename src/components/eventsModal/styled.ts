@@ -9,7 +9,7 @@ export const StyledModalContainer = styled.div<IEventsModalProps>`
   top: 0;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(${({ theme }) => theme.colors.rgbaColor[0]});
   cursor: pointer;
 `;
 

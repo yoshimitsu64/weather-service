@@ -9,7 +9,7 @@ export const StyledFooter = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  background: rgbza(56, 56, 128, 0.9);
+  background: rgba(${({ theme }) => theme.colors.rgbaColor[2]});
   @media screen and (max-width: ${({ theme }) => theme?.sizes.maxWidth[3]}px) {
     height: ${({ theme }) => theme?.sizes.height[5]}px;
   }

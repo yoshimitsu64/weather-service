@@ -42,10 +42,12 @@ function* setVisualCrossingData(payload: {
   void,
   IVisualCrossing
 > {
+  console.log(payload);
   const response = yield call<FetchDataType<IVisualCrossing>>(
     fetchData,
     `${visualCrossingApiUrl}${payload.lat},${payload.lng}/next7days?unitGroup=metric&include=hours&key=${process.env.REACT_APP_VISUALCROSSING_API_KEY}&contentType=json`,
   );
+  console.log(response);
   yield put(setVisualCrossing(response));
 }
 

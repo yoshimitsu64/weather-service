@@ -11,20 +11,20 @@ import {
 } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 
+import accuweatherSlice from '@store/accuweather/accuweather.slice';
+import calendarSlice from '@store/calendar/calendar.slice';
+import openWeatherMapSlice from '@store/openWeather/openWeather.slice';
+import visualCrossingSlice from '@store/visualCrossing/visualCrossing.slice';
+import opencageSlice from '@store/opencage/opencage.slice';
+import { rootSaga } from '@store/sagas/openweathermap';
+import selectedServiceSlice from '@store/selectedService/selectedService.slice';
 import {
   openCagePersistConfig,
   visualCrossingPersistConfig,
   accuweatherPersistConfig,
   openWeatherMapPersistConfig,
 } from '@store/persistConfig';
-import accuweatherSlice from '@store/accuweather/accuweather.slice';
-import calendarSlice from '@store/calendar/calendar.slice';
-import openWeatherMapSlice from '@store/openWeather/openWeather.slice';
-import visualCrossingSlice from '@store/visualCrossing/visualCrossing.slice';
-import opencageSlice from '@store/opencage/opencage.slice';
 import { accuweatherApi } from './accuweather/accuweather.api';
-import { rootSaga } from '@store/sagas/openweathermap';
-import selectedServiceSlice from '@store/selectedService/selectedService.slice';
 
 const reducer = combineReducers({
   [accuweatherApi.reducerPath]: accuweatherApi.reducer,
@@ -54,4 +54,3 @@ sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-

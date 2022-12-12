@@ -1,4 +1,4 @@
-/// <reference types="react-scripts" />
-/// <reference types="redux-persist" />
+/// <reference appTypes="react-scripts" />
+/// <reference appTypes="redux-persist" />
 
 declare module 'react-google-calendar-api'

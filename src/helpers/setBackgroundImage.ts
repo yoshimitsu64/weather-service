@@ -10,12 +10,10 @@ export const setBackgroundImage = (icon: number | string): string => {
       return `${process.env.PUBLIC_URL}/backgroundImages/snow.jpg`;
     } else if (icon === 800) {
       return `${process.env.PUBLIC_URL}/backgroundImages/clear.jpg`;
-    } else {
-      return `${process.env.PUBLIC_URL}/backgroundImages/clear.jpg`;
     }
-  } else {
-    const imgName = icon?.includes('partly') ? 'cloudy' : (icon as string)?.split('-')[0];
-    console.log(imgName);
-    return `${process.env.PUBLIC_URL}/backgroundImages/${imgName}.jpg`;
+    return `${process.env.PUBLIC_URL}/backgroundImages/clear.jpg`;
   }
+  return `${process.env.PUBLIC_URL}/backgroundImages/${
+    icon?.includes('partly') ? 'cloudy' : (icon as string)?.split('-')[0]
+  }.jpg`;
 };

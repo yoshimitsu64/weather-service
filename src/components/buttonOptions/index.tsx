@@ -30,14 +30,14 @@ const ButtonOptions = (): JSX.Element => {
 
   return (
     <StyledButtonContainer>
-      <StyledButton onClick={handleOpenOptions()}>
+      <StyledButton onClick={handleOpenOptions()} data-cy="options">
         Services <span>{isOpen ? '∧' : '∨'}</span>
       </StyledButton>
       {isOpen && (
         <StyledOptionsContainer>
           <StyledOptions>
             {services.map(({ service, id }) => (
-              <StyledOption onClick={handleOptionClick(service)} key={id}>
+              <StyledOption onClick={handleOptionClick(service)} key={id} data-cy={service}>
                 {service} {service === selectedService && '✓'}
               </StyledOption>
             ))}

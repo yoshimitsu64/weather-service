@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledTodayBox = styled.div`
+export const StyledWidget = styled.div`
   margin-top: ${({ theme }) => theme.space.marginTop[4]}px;
   display: flex;
   flex-direction: column;
@@ -45,49 +45,4 @@ export const StyledTodayBox = styled.div`
   @media screen and (max-height: ${({ theme }) => theme?.sizes.minHeight[0]}px) {
     height: ${({ theme }) => theme.sizes.height[7] - 50}px;
   }
-`;
-
-export const StyledHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  @media screen and (max-width: ${({ theme }) => theme?.sizes.maxWidth[3]}px) {
-    flex-wrap: wrap;
-  }
-`;
-
-export const StyledTodayWeatherContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const StyledInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const StyledImage = styled.img`
-  width: ${({ theme }) => theme?.sizes.width[3]}px;
-  display: flex;
-`;
-
-export const StyledDegrees = styled.div`
-  font-size: ${({ theme }) => theme.fontSizes.fontSize[16]}px;
-`;
-
-export const StyledDescription = styled.span`
-  margin-top: ${({ theme }) => theme.space.marginTop[2]}px;
-  font-size: ${({ theme }) => theme.fontSizes.fontSize[10]}px;
-`;
-
-export const StyledCalendar = styled.span`
-  margin-top: ${({ theme }) => theme.space.marginTop[2]}px;
-  pointer-events: all;
-  width: min-content;
-  cursor: pointer;
-`;
-
-export const StyledCalendarImage = styled.img`
-  width: ${({ theme }) => theme.sizes.width[1]}px;
-  height: ${({ theme }) => theme.sizes.height[0]}px;
 `;

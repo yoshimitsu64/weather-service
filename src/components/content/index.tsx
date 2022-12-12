@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
-import TodayWeather from '@components/todayWeather';
+import Widget from '@components/widget';
 import { requestWeather } from '@store/actions';
 import { StyledContent } from '@components/content/styled';
 import { selectOpenCage } from '@store/selectors/storeSelectors';
@@ -20,7 +20,7 @@ const Content = (): JSX.Element => {
 
   return (
     <StyledContent>
-      <TodayWeather />
+      <Widget />
     </StyledContent>
   );
 };

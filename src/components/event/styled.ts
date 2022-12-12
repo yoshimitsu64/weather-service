@@ -32,5 +32,4 @@ export const StyledEvent = styled.div`
 
 export const StyledText = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.fontSize[5]}px;
-  min-width: ${({ theme }) => theme?.sizes.width[4]}%;
 `;

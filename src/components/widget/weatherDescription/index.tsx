@@ -1,50 +1,38 @@
-import { Ref, useRef, useState } from 'react';
+import { Ref, useRef } from 'react';
+
+import { useAppSelector } from '@hooks/storeHooks';
 
 import {
   selectOpenWeather,
   selectSelectedService,
   selectVisualCrossing,
 } from '@store/selectors/storeSelectors';
-import { useAppSelector } from '@hooks/storeHooks';
-import WeatherSlider from '@components/weatherSlider';
-import TodayDate from '@components/date';
-import Input from '@components/input';
-import ButtonOptions from '@components/buttonOptions';
+
 import EventsModal, { ForwardRef } from '@components/eventsModal';
 import {
-  StyledTodayWeatherContainer,
-  StyledInfo,
-  StyledImage,
-  StyledDegrees,
-  StyledDescription,
-  StyledTodayBox,
-  StyledHeader,
   StyledCalendar,
   StyledCalendarImage,
-} from '@components/todayWeather/styled';
+  StyledDegrees,
+  StyledDescription,
+  StyledImage,
+  StyledInfo,
+  StyledTodayWeatherContainer,
+  StyledWeatherDescriptionContainer,
+} from '@components/widget/weatherDescription/styled';
 
-const TodayWeather = (): JSX.Element => {
+const WeatherDescription = (): JSX.Element => {
   const ref = useRef<ForwardRef>();
 
   const visualCrossingWeather = useAppSelector(selectVisualCrossing);
   const openWeather = useAppSelector(selectOpenWeather);
   const selectedService = useAppSelector(selectSelectedService);
 
-  const [isOpenCalendar, setIsOpenCalendar] = useState<boolean>(false);
-
   const handleClick = () => (): void => {
-    setIsOpenCalendar(!isOpenCalendar);
     ref.current?.closeModal(true);
   };
 
   return (
-    <StyledTodayBox>
-      <StyledHeader>
-        <TodayDate />
-        <Input />
-        <ButtonOptions />
-        <EventsModal ref={ref as Ref<ForwardRef>} />
-      </StyledHeader>
+    <StyledWeatherDescriptionContainer>
       <StyledCalendar onClick={handleClick()}>
         <StyledCalendarImage
           src={`${process.env.PUBLIC_URL}/SVGS/weekly-calendar-monthly-calendar-svgrepo-com.svg`}
@@ -71,9 +59,9 @@ const TodayWeather = (): JSX.Element => {
         />
       </StyledTodayWeatherContainer>
       <StyledDescription>{visualCrossingWeather?.days[0].description}</StyledDescription>
-      {visualCrossingWeather?.days.length > 0 && <WeatherSlider />}
-    </StyledTodayBox>
+      <EventsModal ref={ref as Ref<ForwardRef>} />
+    </StyledWeatherDescriptionContainer>
   );
 };
 
-export default TodayWeather;
+export default WeatherDescription;

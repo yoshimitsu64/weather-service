@@ -5,7 +5,7 @@ export const theme: DefaultTheme = {
     padding: ['10px 0', '0 5px 0 5px', '20px 40px', '20px'],
     marginLeft: [5],
     marginRight: [5, 30, 50],
-    marginBottom: [5],
+    marginBottom: [5, 30],
     marginTop: [0, 5, 10, 20, 100],
   },
   fontSizes: {

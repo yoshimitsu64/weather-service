@@ -1,16 +1,18 @@
 import { createSelector } from 'reselect';
 
-import { setBackgroundImage } from '@helpers/setBackgroundImage';
 import {
   selectSelectedService,
   selectOpenWeather,
   selectVisualCrossing,
 } from '@store/selectors/storeSelectors';
+
 import { convertDateTimeToHours } from '@helpers/convertDateTimeToHours';
+import { setBackgroundImage } from '@helpers/setBackgroundImage';
+
 import { Hour } from '@interfaces/IVisualCrossing';
 
 type HourWeather = Pick<Hour, 'datetime' | 'temp' | 'icon'>;
-type IHourWeather = HourWeather & {
+export type IHourWeather = HourWeather & {
   key: string | number;
 };
 
@@ -33,7 +35,7 @@ export const selectHourWeather = createSelector(
   (service, openWeather, visualCrossing) => {
     const arr: Array<IHourWeather> = [];
     if (service === 'OpenWeatherMap') {
-      openWeather?.hourly.slice(0, 25).map((hour) =>
+      openWeather?.hourly.slice(0, 24).map((hour) =>
         arr.push({
           key: hour.dt,
           datetime: convertDateTimeToHours(new Date(1000 * hour.dt)),

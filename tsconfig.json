@@ -20,6 +20,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
+    "types": [
+      "cypress",
+      "node"
+    ],
     "paths": {
       "@components/*": [
         "./components/*"
@@ -44,10 +48,15 @@
       ],
       "@api/*": [
         "./api/*"
+      ],
+      "@appTypes/*": [
+        "./appTypes/*"
       ]
     },
     "include": [
-      "src"
+      "src",
+      "**/*.ts",
+      "../cypress.d.ts"
     ]
   }
 }

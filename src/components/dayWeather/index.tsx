@@ -14,7 +14,7 @@ interface IProps {
 
 const DayWeather = ({ temperature, icon, day }: IProps): JSX.Element => {
   return (
-    <StyledDayWeather>
+    <StyledDayWeather data-cy="day-weather">
       <StyledDay>{days[new Date(day * 1000).getDay()]}</StyledDay>
       <StyledImage src={icon} alt="didnt load" />
       <StyledTemperature>{Math.round(temperature)}&#176;</StyledTemperature>

@@ -10,7 +10,7 @@ type Props = Pick<Hour, 'datetime' | 'temp' | 'icon'>;
 
 const HourWeather = ({ datetime, temp, icon }: Props): JSX.Element => {
   return (
-    <StyledHourWeatherContainer>
+    <StyledHourWeatherContainer data-cy="hourly-weather">
       <StyledTemp>{Math.round(temp)}&#176;</StyledTemp>
       <StyledImage src={icon} />
       <StyledTime>{datetime}</StyledTime>

@@ -1,10 +1,5 @@
 import storage from 'redux-persist/es/storage';
 
-const accuweatherPersistConfig = {
-  key: 'accuweather',
-  storage,
-};
-
 const openCagePersistConfig = {
   key: 'openCage',
   storage,
@@ -20,9 +15,4 @@ const visualCrossingPersistConfig = {
   storage,
 };
 
-export {
-  visualCrossingPersistConfig,
-  accuweatherPersistConfig,
-  openWeatherMapPersistConfig,
-  openCagePersistConfig,
-};
+export { visualCrossingPersistConfig, openWeatherMapPersistConfig, openCagePersistConfig };

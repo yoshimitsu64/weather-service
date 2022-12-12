@@ -10,6 +10,7 @@ module.exports = function override(config) {
     '@store': 'src/store',
     '@helpers': 'src/helpers',
     '@api': 'src/api',
+    '@appTypes': 'src/appTypes',
   })(config);
   return config;
 };

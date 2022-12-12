@@ -69,6 +69,7 @@ const Input = (): JSX.Element => {
         value={value}
         onClick={handleIsOpen}
         ref={inputRef}
+        data-cy="input"
       />
       <StyledDropDownContainer>
         {places?.length > 0 && isOpen && (
@@ -78,6 +79,7 @@ const Input = (): JSX.Element => {
                 <StyledListItem
                   key={item.id}
                   onClick={handleClick(item.latitude, item.longitude, item.city)}
+                  data-cy={item.name}
                 >
                   {item.name}, {item.country}
                 </StyledListItem>

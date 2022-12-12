@@ -4,7 +4,6 @@ const selectSelectedService = (state: RootState) => state.selectedService.servic
 const selectOpenWeather = (state: RootState) => state.openWeatherMap.weather!;
 const selectVisualCrossing = (state: RootState) => state.visualCrossing.weather!;
 const selectOpenCage = (state: RootState) => state.openCage.geolocation!;
-const selectAccuWeather = (state: RootState) => state.accuweather.city!;
 const selectCalendar = (state: RootState) => state.calendar.events!;
 
 export {
@@ -12,6 +11,5 @@ export {
   selectVisualCrossing,
   selectOpenWeather,
   selectSelectedService,
-  selectAccuWeather,
   selectCalendar,
 };

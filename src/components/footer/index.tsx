@@ -1,5 +1,8 @@
-import WeekWeather from '@components/weekWeather';
-import { StyledFooter, StyledWeatherContainer } from '@components/footer/styled';
+import WeekWeather from '@components/footer/weekWeather';
+
+import { memo } from 'react';
+
+import { StyledFooter, StyledWeatherContainer } from './styled';
 
 const Footer = (): JSX.Element => {
   return (
@@ -11,4 +14,4 @@ const Footer = (): JSX.Element => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

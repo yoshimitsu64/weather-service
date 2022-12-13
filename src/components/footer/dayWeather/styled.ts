@@ -5,7 +5,7 @@ export const StyledDayWeather = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.color[0]};
+  color: ${({ theme }) => theme.colors.rgbaColor[0]};
 `;
 
 export const StyledImage = styled.img`

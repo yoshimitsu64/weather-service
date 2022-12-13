@@ -1,21 +1,19 @@
-import WeatherSlider from '@components/weatherSlider';
+import { memo } from 'react';
+
+import WeatherSlider from '@components/widget/weatherSlider';
 import WidgetHeader from '@components/widget/widgetHeader';
 import WeatherDescription from '@components/widget/weatherDescription';
 
-import { StyledWidget } from '@components/widget/styled';
-import { useAppSelector } from '@hooks/storeHooks';
-import { selectHourWeather } from '@store/selectors/selectors';
+import { StyledWidget } from './styled';
 
 const Widget = (): JSX.Element => {
-  const hourWeather = useAppSelector(selectHourWeather);
-
   return (
     <StyledWidget>
       <WidgetHeader />
       <WeatherDescription />
-      <WeatherSlider hourWeather={hourWeather} />
+      <WeatherSlider />
     </StyledWidget>
   );
 };
 
-export default Widget;
+export default memo(Widget);

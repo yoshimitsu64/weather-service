@@ -1,10 +1,11 @@
 import { days } from '@constants/date';
+
 import {
   StyledDayWeather,
   StyledImage,
   StyledDay,
   StyledTemperature,
-} from '@components/dayWeather/styled';
+} from '@components/footer/dayWeather/styled';
 
 interface IProps {
   temperature: number;

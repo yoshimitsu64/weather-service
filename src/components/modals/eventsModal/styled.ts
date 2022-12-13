@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { IEventsModalProps } from '@components/eventsModal/index';
+
+import { IEventsModalProps } from '@customTypes/index';
 
 export const StyledModalContainer = styled.div<IEventsModalProps>`
   display: ${({ display }) => display};
@@ -9,18 +10,20 @@ export const StyledModalContainer = styled.div<IEventsModalProps>`
   top: 0;
   align-items: center;
   justify-content: center;
-  background-color: rgba(${({ theme }) => theme.colors.rgbaColor[0]});
+  background-color: ${({ theme }) => theme.colors.rgbaColor[10]};
   cursor: pointer;
 `;
 
 export const StyledEventsContainer = styled.div`
   border-radius: ${({ theme }) => theme.borders.borderRadius[4]}px;
-  width: ${({ theme }) => theme?.sizes.width[7]}px;
+  width: ${({ theme }) => theme?.sizes.width[10]}px;
   align-items: center;
   overflow: auto;
+  display: flex;
+  justify-content: center;
   margin-right: ${({ theme }) => theme.space.marginRight[2]}px;
   padding: ${({ theme }) => theme.space.padding[3]};
-  background: linear-gradient(to right, #ec6ead, #3494e6);
+  background: ${({ theme }) => theme.colors.gradient[0]};
   cursor: auto;
   margin-bottom: ${({ theme }) => theme.space.marginBottom[1]}px;
 `;

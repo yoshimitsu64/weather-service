@@ -6,7 +6,8 @@ export const StyledWidget = styled.div`
   flex-direction: column;
   width: ${({ theme }) => theme?.sizes.width[9]}px;
   height: ${({ theme }) => theme?.sizes.height[7]}px;
-  background: linear-gradient(to right, #ec6ead, #3494e6);
+  background-color: ${({ theme }) => theme.colors.rgbaColor[11]};
+  color: ${({ theme }) => theme.colors.rgbaColor[9]};
   border-radius: ${({ theme }) => theme.borders.borderRadius[4]}px;
   padding: ${({ theme }) => theme.space.padding[2]};
   overflow: auto;
@@ -16,8 +17,8 @@ export const StyledWidget = styled.div`
   }
 
   & {
-    --scrollbarBG: #cfd8dc;
-    --thumbBG: #90a4ae;
+    --scrollbarBG: ${({ theme }) => theme.colors.rgbaColor[7]};
+    --thumbBG: ${({ theme }) => theme.colors.rgbaColor[8]};
   }
 
   &::-webkit-scrollbar {

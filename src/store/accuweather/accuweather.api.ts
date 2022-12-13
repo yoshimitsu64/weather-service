@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { IDate } from '@interfaces/IPlace';
+
 import { accuWeatherApiUrl } from '@constants/apiUrls';
 
 export const accuweatherApi = createApi({

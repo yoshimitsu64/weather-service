@@ -1,19 +1,18 @@
 import { ChangeEvent, useState, memo, useEffect, useRef } from 'react';
 
 import { useSearchCityQuery } from '@store/accuweather/accuweather.api';
+
+import { IPlace } from '@interfaces/IPlace';
+
 import { useDebounce } from '@hooks/useDebounce';
-import { IDate, IPlace } from '@interfaces/IPlace';
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 
 import { requestWeather } from '@store/actions';
-import { selectOpenCage } from '@store/selectors/storeSelectors';
-import {
-  StyledInput,
-  StyledInputContainer,
-  StyledDropDown,
-  StyledListItem,
-  StyledDropDownContainer,
-} from './styled';
+import { selectOpenCage } from '@store/selectors';
+
+import Dropdown from '@components/input/dropdown';
+
+import { StyledInput, StyledInputContainer } from './styled';
 
 const Input = (): JSX.Element => {
   const cityStorage = useAppSelector(selectOpenCage);
@@ -33,12 +32,6 @@ const Input = (): JSX.Element => {
     setValue(e.target.value);
   };
 
-  useEffect(() => {
-    cityStorage?.components.city
-      ? setValue(cityStorage?.components.city)
-      : setValue(cityStorage?.components.state);
-  }, [cityStorage]);
-
   const handleClick = (latitude: number, longitude: number, city: string) => () => {
     setValue(city);
     dispatch(requestWeather(latitude, longitude));
@@ -48,16 +41,29 @@ const Input = (): JSX.Element => {
     setIsOpen(true);
   };
 
+  const closeDropdown = (e: MouseEvent) => {
+    if ((e.composedPath()[0] as HTMLInputElement) !== inputRef.current) {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
-    const closeDropdown = (e: MouseEvent) => {
-      if ((e.composedPath()[0] as HTMLInputElement) !== inputRef.current) {
-        setIsOpen(false);
-      }
-    };
     document.body.addEventListener('click', closeDropdown);
 
     return () => document.removeEventListener('click', closeDropdown);
   }, []);
+
+  useEffect(() => {
+    if (isOpen && places?.length > 0) {
+      places?.length > 0 && setIsOpen(true);
+    }
+  }, [places, isOpen]);
+
+  useEffect(() => {
+    cityStorage?.components.city
+      ? setValue(cityStorage?.components.city)
+      : setValue(cityStorage?.components.state);
+  }, [cityStorage]);
 
   return (
     <StyledInputContainer>
@@ -71,23 +77,7 @@ const Input = (): JSX.Element => {
         ref={inputRef}
         data-cy="input"
       />
-      <StyledDropDownContainer>
-        {places?.length > 0 && isOpen && (
-          <StyledDropDown>
-            {places?.map((item: IDate) => {
-              return (
-                <StyledListItem
-                  key={item.id}
-                  onClick={handleClick(item.latitude, item.longitude, item.city)}
-                  data-cy={item.name}
-                >
-                  {item.name}, {item.country}
-                </StyledListItem>
-              );
-            })}
-          </StyledDropDown>
-        )}
-      </StyledDropDownContainer>
+      <Dropdown isOpen={isOpen} places={places} onHandleClick={handleClick} />
     </StyledInputContainer>
   );
 };

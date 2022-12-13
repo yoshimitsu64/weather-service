@@ -7,11 +7,11 @@ export const StyledButtonContainer = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.backgroundColor[1]};
+  background-color: ${({ theme }) => theme.colors.rgbaColor[2]};
   width: ${({ theme }) => theme?.sizes.width[6]}px;
   font-size: ${({ theme }) => theme.fontSizes.fontSize[8]}px;
   display: flex;
-  color: ${({ theme }) => theme.colors.color[0]};
+  color: ${({ theme }) => theme.colors.rgbaColor[0]};
   border-radius: ${({ theme }) => theme.borders.borderRadius[1]}px;
   cursor: pointer;
   justify-content: space-between;
@@ -24,13 +24,13 @@ export const StyledButton = styled.button`
 
 export const StyledOptionsContainer = styled.div`
   position: relative;
-  color: ${({ theme }) => theme.colors.color[0]};
+  color: ${({ theme }) => theme.colors.rgbaColor[0]};
 `;
 
 export const StyledOptions = styled.ul`
   margin-top: ${({ theme }) => theme.space.marginTop[1]}px;
   border-radius: ${({ theme }) => theme.borders.borderRadius[3]}px;
-  background-color: ${({ theme }) => theme.colors.backgroundColor[1]};
+  background-color: ${({ theme }) => theme.colors.rgbaColor[2]};
   list-style-type: none;
   position: absolute;
   width: ${({ theme }) => theme?.sizes.width[4]}%;
@@ -45,7 +45,7 @@ export const StyledOption = styled.li`
   border-radius: inherit;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.color[2]};
+    background-color: ${({ theme }) => theme.colors.rgbaColor[1]};
     cursor: pointer;
   }
 `;

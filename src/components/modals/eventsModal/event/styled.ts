@@ -21,12 +21,12 @@ export const StyledEventContainer = styled.div`
 export const StyledEvent = styled.div`
   min-width: ${({ theme }) => theme?.sizes.width[5]}px;
   height: ${({ theme }) => theme?.sizes.height[0]}px;
-  background-color: ${({ theme }) => theme.colors.backgroundColor[4]};
+  background-color: ${({ theme }) => theme.colors.rgbaColor[3]};
   border-radius: ${({ theme }) => theme.borders.borderRadius[5]}px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.color[0]};
+  color: ${({ theme }) => theme.colors.rgbaColor[2]};
   margin-right: ${({ theme }) => theme.space.marginRight[1]}px;
 `;
 

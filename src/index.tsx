@@ -4,7 +4,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyles } from '@styles/globalStyles';
+
 import { theme } from '@constants/theme';
+
 import { persistor, store } from './store';
 import App from './App';
 

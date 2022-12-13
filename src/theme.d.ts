@@ -21,9 +21,8 @@ declare module 'styled-components' {
       maxHeight: Array<number>;
     };
     colors: {
-      backgroundColor: Array<string>;
-      color: Array<string>;
       rgbaColor: Array<string>;
+      gradient: Array<string>;
     };
     borders: {
       borderRadius: Array<number>;
@@ -32,6 +31,9 @@ declare module 'styled-components' {
     };
     zIndices: {
       zIndex: Array<number>;
+    };
+    fonts: {
+      fontWeight: Array<number>;
     };
   }
 }

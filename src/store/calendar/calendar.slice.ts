@@ -1,5 +1,6 @@
-import { IEvent } from '@interfaces/IEvents';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { IEvent } from '@interfaces/IEvents';
 
 interface IInitialState {
   events: IEvent[] | [];

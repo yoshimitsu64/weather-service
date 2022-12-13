@@ -13,7 +13,7 @@ export const StyledFooter = styled.div`
   @media screen and (max-width: ${({ theme }) => theme?.sizes.maxWidth[3]}px) {
     height: ${({ theme }) => theme?.sizes.height[5]}px;
   }
-  background: linear-gradient(to right, #ec6ead, #3494e6);
+  background: ${({ theme }) => theme.colors.rgbaColor[10]};
 `;
 
 export const StyledWeatherContainer = styled.div`

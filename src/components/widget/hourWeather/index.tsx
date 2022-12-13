@@ -1,10 +1,11 @@
 import { Hour } from '@interfaces/IVisualCrossing';
+
 import {
   StyledTemp,
   StyledHourWeatherContainer,
   StyledTime,
   StyledImage,
-} from '@components/hourWeather/styled';
+} from '@components/widget/hourWeather/styled';
 
 type Props = Pick<Hour, 'datetime' | 'temp' | 'icon'>;
 

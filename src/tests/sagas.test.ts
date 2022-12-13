@@ -1,6 +1,6 @@
-import { call, put, spawn, takeLatest } from 'redux-saga/effects';
+import { all, call, join, put, spawn, takeLatest } from 'redux-saga/effects';
 
-import { expect } from '@jest/globals';
+import { expect, jest } from '@jest/globals';
 
 import { getWeatherWatcher, getWeatherLocationWorker } from '@store/sagas/weatherWorker';
 import { setVisualCrossingData, setOpenWeatherMapData } from '@store/sagas/weather';
@@ -8,7 +8,7 @@ import { setOpenCageData } from '@store/sagas/location';
 import { actionTypes } from '@store/actionTypes';
 import { setVisualCrossing } from '@store/visualCrossing/visualCrossing.slice';
 import { setOpenWeather } from '@store/openWeather/openWeather.slice';
-import { setGeolocation } from '@store/opencage/opencage.slice';
+import { setGeolocation, setIsLoading } from '@store/opencage/opencage.slice';
 
 import { fetchData } from '@api/fetchData';
 
@@ -17,6 +17,8 @@ import { openCageApiUrl, openWeatherMapApiUrl, visualCrossingApiUrl } from '@con
 import { IOpencage } from '@interfaces/IOpencage';
 import { IVisualCrossing } from '@interfaces/IVisualCrossing';
 import { IOpenweathermap } from '@interfaces/IOpenweathermap';
+
+import { createMockTask } from '@redux-saga/testing-utils';
 
 import { openCageDataPayload } from './testsPayloads/openCageData';
 
@@ -42,15 +44,30 @@ describe('Sagas test', () => {
   it('Should call getWeatherWorker', () => {
     const worker = getWeatherLocationWorker(payload);
 
-    expect(worker.next().value).toEqual(call(setOpenCageData, payload));
+    expect(worker.next().value).toEqual(put(setIsLoading(true)));
 
-    expect(worker.next({ lat: payload.lat, lng: payload.lon }).value).toEqual(
-      spawn(setVisualCrossingData, { lat: payload.lat, lng: payload.lon }),
+    expect(worker.next(payload).value).toEqual(call(setOpenCageData, payload));
+
+    expect(
+      worker.next({
+        lat: payload.lat,
+        lng: payload.lon,
+      }).value,
+    ).toEqual(
+      all([
+        spawn(setVisualCrossingData, {
+          lat: payload.lat,
+          lng: payload.lon,
+        }),
+        spawn(setOpenWeatherMapData, { lat: payload.lat, lng: payload.lon }),
+      ]),
     );
 
-    expect(worker.next({ lat: payload.lat, lng: payload.lon }).value).toEqual(
-      spawn(setOpenWeatherMapData, { lat: payload.lat, lng: payload.lon }),
-    );
+    const mockedTask = createMockTask();
+
+    expect(worker.next(mockedTask).value).toEqual(join(mockedTask));
+
+    expect(worker.next().value).toEqual(put(setIsLoading(false)));
 
     expect(worker.next().done).toBeTruthy();
   });
@@ -65,7 +82,7 @@ describe('Sagas test', () => {
 
     expect(worker.next(result).value).toEqual(put(setGeolocation(result.results[0])));
 
-    const rez = jest.fn((res) => res.results[0]);
+    const rez = jest.fn((res: IOpencage) => res.results[0]);
 
     rez(result);
 
@@ -92,6 +109,7 @@ describe('Sagas test', () => {
     const openWeatherMapUrl = `${openWeatherMapApiUrl}${payload.lat}&lon=${payload.lon}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
 
     jest.setTimeout(10000);
+
     const result = await fetchData<IOpenweathermap>(openWeatherMapUrl);
 
     expect(worker.next(result).value).toEqual(call(fetchData, openWeatherMapUrl));

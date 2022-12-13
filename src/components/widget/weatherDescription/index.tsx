@@ -1,14 +1,15 @@
-import { Ref, useRef } from 'react';
+import { useRef } from 'react';
 
 import { useAppSelector } from '@hooks/storeHooks';
 
-import {
-  selectOpenWeather,
-  selectSelectedService,
-  selectVisualCrossing,
-} from '@store/selectors/storeSelectors';
+import { selectOpenWeather, selectSelectedService, selectVisualCrossing } from '@store/selectors';
 
-import EventsModal, { ForwardRef } from '@components/eventsModal';
+import { ForwardRef } from '@customTypes/index';
+
+import EventsModal from '@components/modals/eventsModal';
+
+import { openWeatherMapImageURL, visualCrossingImageURL } from '@constants/images';
+
 import {
   StyledCalendar,
   StyledCalendarImage,
@@ -18,14 +19,24 @@ import {
   StyledInfo,
   StyledTodayWeatherContainer,
   StyledWeatherDescriptionContainer,
-} from '@components/widget/weatherDescription/styled';
+} from './styled';
 
 const WeatherDescription = (): JSX.Element => {
-  const ref = useRef<ForwardRef>();
+  const ref = useRef<ForwardRef>(null);
 
   const visualCrossingWeather = useAppSelector(selectVisualCrossing);
   const openWeather = useAppSelector(selectOpenWeather);
   const selectedService = useAppSelector(selectSelectedService);
+
+  const weatherImageSrc =
+    selectedService === 'OpenWeatherMap'
+      ? `${openWeatherMapImageURL}${openWeather?.daily?.[0].weather[0].icon}@2x.png`
+      : `${visualCrossingImageURL}${visualCrossingWeather?.days?.[0].icon}.svg`;
+
+  const degrees =
+    selectedService === 'OpenWeatherMap'
+      ? openWeather?.daily?.[0].temp.day
+      : visualCrossingWeather?.days[0].temp;
 
   const handleClick = () => (): void => {
     ref.current?.closeModal(true);
@@ -35,31 +46,21 @@ const WeatherDescription = (): JSX.Element => {
     <StyledWeatherDescriptionContainer>
       <StyledCalendar onClick={handleClick()}>
         <StyledCalendarImage
-          src={`${process.env.PUBLIC_URL}/SVGS/weekly-calendar-monthly-calendar-svgrepo-com.svg`}
+          src={`${visualCrossingImageURL}weekly-calendar-monthly-calendar-svgrepo-com.svg`}
           alt="didnt load"
         />
       </StyledCalendar>
       <StyledTodayWeatherContainer>
         <StyledInfo>
           <StyledDegrees>
-            {Math.round(
-              selectedService === 'OpenWeatherMap'
-                ? openWeather?.daily[0].temp.day
-                : visualCrossingWeather?.days[0].temp,
-            )}
+            {Math.round(degrees)}
             &#176;C
           </StyledDegrees>
         </StyledInfo>
-        <StyledImage
-          src={
-            selectedService === 'OpenWeatherMap'
-              ? `http://openweathermap.org/img/wn/${openWeather?.daily[0].weather[0].icon}@2x.png`
-              : `${process.env.PUBLIC_URL}/SVGS/${visualCrossingWeather?.days[0].icon}.svg`
-          }
-        />
+        <StyledImage src={weatherImageSrc} />
       </StyledTodayWeatherContainer>
       <StyledDescription>{visualCrossingWeather?.days[0].description}</StyledDescription>
-      <EventsModal ref={ref as Ref<ForwardRef>} />
+      <EventsModal ref={ref} />
     </StyledWeatherDescriptionContainer>
   );
 };

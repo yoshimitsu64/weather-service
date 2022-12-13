@@ -3,9 +3,9 @@ import { call, CallEffect, put, PutEffect } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { requestWeather } from '@store/actions';
-import { setGeolocation } from '@store/opencage/opencage.slice';
+import { setError, setGeolocation } from '@store/opencage/opencage.slice';
 
-import { FetchDataType } from '@appTypes/sagas';
+import { FetchDataType } from '@customTypes/sagas';
 
 import { Geometry, IOpencage, Result } from '@interfaces/IOpencage';
 
@@ -15,12 +15,24 @@ import { fetchData } from '@api/fetchData';
 
 export function* setOpenCageData(
   payload: ReturnType<typeof requestWeather>,
-): Generator<CallEffect<IOpencage> | PutEffect<PayloadAction<Result>>, Geometry, IOpencage> {
-  const coordinates = yield call<FetchDataType<IOpencage>>(
-    fetchData,
-    `${openCageApiUrl}${payload.lat},${payload.lon}&key=${process.env.REACT_APP_OPENCAGEDATA_API_KEY}&language=en&no_annotations=1&pretty=1`,
-  );
-  yield put(setGeolocation(coordinates.results[0]));
+): Generator<
+  CallEffect<IOpencage> | PutEffect<PayloadAction<Result>> | PutEffect<PayloadAction<boolean>>,
+  Geometry,
+  IOpencage
+> {
+  try {
+    const coordinates = yield call<FetchDataType<IOpencage>>(
+      fetchData,
+      `${openCageApiUrl}${payload.lat},${payload.lon}&` +
+        `key=${process.env.REACT_APP_OPENCAGEDATA_API_KEY}` +
+        `&language=en&no_annotations=1&pretty=1`,
+    );
+    yield put(setGeolocation(coordinates.results[0]));
 
-  return coordinates.results[0].geometry;
+    return coordinates.results[0].geometry;
+  } catch (e) {
+    yield put(setError(true));
+
+    return { lat: 53.9006, lng: 27.559 };
+  }
 }

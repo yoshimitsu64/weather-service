@@ -12,7 +12,7 @@ export const theme: DefaultTheme = {
     fontSize: [4, 8, 12, 16, 18, 20, 21, 22, 23, 24, 25, 28, 30, 32, 36, 40, 60],
   },
   sizes: {
-    width: [11, 40, 60, 70, 100, 110, 200, 250, 700, 900],
+    width: [11, 40, 60, 70, 100, 110, 200, 250, 700, 900, 350],
     height: [40, 50, 60, 70, 100, 120, 150, 450, 230],
     minWidth: [100, 110],
     minHeight: [60],
@@ -20,9 +20,21 @@ export const theme: DefaultTheme = {
     maxWidth: [450, 500, 700, 800],
   },
   colors: {
-    color: ['#FFFFFF', '#000000', '#407088', '#272343', '#6855e0'],
-    backgroundColor: ['#FFFFFF', '#272343', '#000000', '#685518', '#400082', '#717E8E'],
-    rgbaColor: ['0,0,0,0.5', '104,85,224,0.2', '56,56,128,0.9', '104,85,224,1'],
+    rgbaColor: [
+      'rgb(255, 255, 255)',
+      'rgb(64, 112, 136)',
+      'rgb(39, 35, 67)',
+      'rgb(104, 85, 224)',
+      'rgb(104, 85, 24)',
+      'rgb(64, 0, 130)',
+      'rgb(113, 126, 142)',
+      'rgb(207, 216, 220)',
+      'rgb(144, 164, 174)',
+      'rgb(0,0,0)',
+      'rgba(0,0,0,0.7)',
+      'rgba(255, 255, 255,0.9)',
+    ],
+    gradient: ['linear-gradient(to right, rgb(236, 110, 173), rgb(52, 148, 230))'],
   },
   borders: {
     border: [
@@ -36,5 +48,8 @@ export const theme: DefaultTheme = {
   },
   zIndices: {
     zIndex: [9999],
+  },
+  fonts: {
+    fontWeight: [600],
   },
 };

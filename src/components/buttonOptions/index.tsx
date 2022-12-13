@@ -1,17 +1,21 @@
 import { useState } from 'react';
 
 import { services } from '@constants/services';
+
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
+
 import { setSelectedService } from '@store/selectedService/selectedService.slice';
+import { selectSelectedService } from '@store/selectors';
+
 import { ISelectedServices } from '@interfaces/ISelectedServices';
-import { selectSelectedService } from '@store/selectors/storeSelectors';
+
 import {
   StyledButton,
   StyledOptions,
   StyledOption,
   StyledButtonContainer,
   StyledOptionsContainer,
-} from '@components/buttonOptions/styled';
+} from './styled';
 
 const ButtonOptions = (): JSX.Element => {
   const selectedService = useAppSelector(selectSelectedService);

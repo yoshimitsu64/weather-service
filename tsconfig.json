@@ -20,6 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
+
     "types": [
       "cypress",
       "node"
@@ -49,14 +50,15 @@
       "@api/*": [
         "./api/*"
       ],
-      "@appTypes/*": [
-        "./appTypes/*"
+      "@customTypes/*": [
+        "./customTypes/*"
       ]
-    },
-    "include": [
-      "src",
-      "**/*.ts",
-      "../cypress.d.ts"
-    ]
-  }
+    }
+  },
+  "include": [
+    "src",
+    "**/*.ts",
+    "src/svgs.d.ts",
+    "../cypress.d.ts"
+  ]
 }

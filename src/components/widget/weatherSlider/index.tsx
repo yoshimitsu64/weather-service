@@ -1,9 +1,11 @@
 import Carousel from 'react-elastic-carousel';
 
 import { useAppSelector } from '@hooks/storeHooks';
-import { selectHourWeather } from '@store/selectors/selectors';
-import HourWeather from '@components/hourWeather';
-import { StyledWeatherSlider } from '@components/weatherSlider/styled';
+
+import { selectHourWeather } from '@store/selectors/selectHourWeather';
+
+import HourWeather from '@components/widget/hourWeather';
+import { StyledWeatherSlider } from '@components/widget/weatherSlider/styled';
 
 const WeatherSlider = (): JSX.Element | null => {
   const hourWeather = useAppSelector(selectHourWeather);
@@ -15,15 +17,8 @@ const WeatherSlider = (): JSX.Element | null => {
   return (
     <StyledWeatherSlider data-cy="hourly-weather-slider">
       <Carousel isRTL={false} itemsToShow={3} itemsToScroll={3}>
-        {hourWeather?.map((hour) => {
-          return (
-            <HourWeather
-              key={hour.key}
-              datetime={hour.datetime}
-              temp={hour.temp}
-              icon={hour.icon}
-            />
-          );
+        {hourWeather?.map(({ key, datetime, temp, icon }) => {
+          return <HourWeather key={key} datetime={datetime} temp={temp} icon={icon} />;
         })}
       </Carousel>
     </StyledWeatherSlider>

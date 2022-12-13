@@ -122,5 +122,3 @@ export interface IOpenweathermap {
   daily: Daily[];
   alerts: Alert[];
 }
-
-

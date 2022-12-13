@@ -37,8 +37,6 @@ export function* getWeatherLocationWorker(
   void,
   Geometry | any
 > {
-  const weather: IVisualCrossing = yield select(selectVisualCrossing);
-
   yield put(setIsLoading(true));
 
   const coordinates = yield call(setOpenCageData, payload);

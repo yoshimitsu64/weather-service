@@ -2,11 +2,9 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 import { call, CallEffect, put, PutEffect } from 'redux-saga/effects';
 
-import { setOpenWeather, setOpenCageError } from '@store/openWeather/openWeather.slice';
-import {
-  setVisualCrossing,
-  setVisualCrossingError,
-} from '@store/visualCrossing/visualCrossing.slice';
+import { setOpenWeather } from '@store/openWeather/openWeather.slice';
+import { setVisualCrossing } from '@store/visualCrossing/visualCrossing.slice';
+import { setError } from '@store/fetchStatus/fetchStatus.slice';
 
 import { IVisualCrossing } from '@interfaces/IVisualCrossing';
 import { IOpenweathermap } from '@interfaces/IOpenweathermap';
@@ -34,7 +32,7 @@ export function* setVisualCrossingData(payload: {
     );
     yield put(setVisualCrossing(response));
   } catch (e) {
-    put(setVisualCrossingError(true));
+    put(setError(true));
   }
 }
 
@@ -42,12 +40,13 @@ export function* setOpenWeatherMapData(payload: {
   lat: number;
   lng: number;
 }): Generator<
-  CallEffect<IOpenweathermap> | PutEffect<PayloadAction<IOpenweathermap> | PayloadAction<boolean>>,
+  | CallEffect<IOpenweathermap | Error>
+  | PutEffect<PayloadAction<IOpenweathermap> | PayloadAction<boolean>>,
   void,
   IOpenweathermap
 > {
   try {
-    const response = yield call<FetchDataType<IOpenweathermap>>(
+    const response = yield call<FetchDataType<IOpenweathermap | Error>>(
       fetchData,
       `${openWeatherMapApiUrl}${payload.lat}&lon=${payload.lng}` +
         `&units=metric&exclude=minutely&` +
@@ -55,6 +54,6 @@ export function* setOpenWeatherMapData(payload: {
     );
     yield put(setOpenWeather(response));
   } catch (e) {
-    put(setOpenCageError(true));
+    put(setError(true));
   }
 }

@@ -1,4 +1,6 @@
-import { StyledButton } from '@components/button/styled';
+import { memo } from 'react';
+
+import { StyledButton } from '@components/loginButton/styled';
 
 interface IProps {
   onHandleClick: () => () => void;
@@ -13,4 +15,4 @@ const LoginButton = ({ onHandleClick, isLoggedIn }: IProps): JSX.Element => {
   );
 };
 
-export default LoginButton;
+export default memo(LoginButton);

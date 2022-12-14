@@ -2,13 +2,12 @@ import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 
-import DayWeather from '@components/footer/dayWeather';
-
 import { requestWeather } from '@store/actions';
 import { selectDayWeather } from '@store/selectors/selectDayWeather';
 import { selectOpenCage } from '@store/selectors';
 
-import { StyledWeather } from './styled';
+import DayWeather from './dayWeather';
+import { StyledWeather, StyledWeatherBar, StyledWeatherBarContainer } from './styled';
 
 const WeekWeather = (): JSX.Element => {
   const city = useAppSelector(selectOpenCage);
@@ -21,12 +20,16 @@ const WeekWeather = (): JSX.Element => {
   }, [city]);
 
   return (
-    <StyledWeather data-cy="week-weather">
-      {dayWeather?.length > 0 &&
-        dayWeather?.map(({ temperature, icon, key, day }) => (
-          <DayWeather temperature={temperature} icon={icon} key={key} day={day} />
-        ))}
-    </StyledWeather>
+    <StyledWeatherBarContainer>
+      <StyledWeatherBar data-cy="footer">
+        <StyledWeather data-cy="week-weather">
+          {dayWeather?.length > 0 &&
+            dayWeather?.map(({ temperature, icon, key, day }) => (
+              <DayWeather temperature={temperature} icon={icon} key={key} day={day} />
+            ))}
+        </StyledWeather>
+      </StyledWeatherBar>
+    </StyledWeatherBarContainer>
   );
 };
 

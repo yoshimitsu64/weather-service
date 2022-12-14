@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { days } from '@constants/date';
 
 import {
@@ -5,7 +7,7 @@ import {
   StyledImage,
   StyledDay,
   StyledTemperature,
-} from '@components/footer/dayWeather/styled';
+} from '@components/weekWeatherBar/dayWeather/styled';
 
 interface IProps {
   temperature: number;
@@ -23,4 +25,4 @@ const DayWeather = ({ temperature, icon, day }: IProps): JSX.Element => {
   );
 };
 
-export default DayWeather;
+export default memo(DayWeather);

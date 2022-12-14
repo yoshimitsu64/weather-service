@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 
 import { selectCalendar } from '@store/selectors';
 
@@ -10,7 +10,7 @@ import { useAppSelector } from '@hooks/storeHooks';
 import { useAuth } from '@hooks/useAuth';
 
 import Event from '@components/modals/eventsModal/event';
-import LoginButton from '@components/button';
+import LoginButton from '@components/loginButton';
 
 import { ForwardRef } from '@customTypes/index';
 
@@ -27,9 +27,12 @@ const EventsModal = forwardRef<ForwardRef>((_, forwardedRef) => {
 
   const elem = usePortal();
 
-  const handleClick = () => () => {
-    setIsLoggedIn();
-  };
+  const handleClick = useCallback(
+    () => () => {
+      setIsLoggedIn();
+    },
+    [setIsLoggedIn],
+  );
 
   useImperativeHandle(forwardedRef, () => ({
     closeModal: (param: boolean) => {

@@ -12,7 +12,6 @@ import {
   join,
   JoinEffect,
   spawn,
-  select,
   SelectEffect,
 } from 'redux-saga/effects';
 
@@ -23,8 +22,6 @@ import { setOpenWeatherMapData, setVisualCrossingData } from '@store/sagas/weath
 import { setIsLoading } from '@store/opencage/opencage.slice';
 
 import { Geometry } from '@interfaces/IOpencage';
-import { selectVisualCrossing } from '@store/selectors';
-import { IVisualCrossing } from '@interfaces/IVisualCrossing';
 
 export function* getWeatherLocationWorker(
   payload: ReturnType<typeof requestWeather>,

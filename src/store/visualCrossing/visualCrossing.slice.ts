@@ -4,12 +4,10 @@ import { IVisualCrossing } from '@interfaces/IVisualCrossing';
 
 interface IInitialState {
   weather: IVisualCrossing | null;
-  error: null | boolean;
 }
 
 const initialState: IInitialState = {
   weather: null,
-  error: null,
 };
 
 const visualCrossingSlice = createSlice({
@@ -19,11 +17,8 @@ const visualCrossingSlice = createSlice({
     setVisualCrossing: (state, action: PayloadAction<IVisualCrossing>) => {
       state.weather = action.payload;
     },
-    setVisualCrossingError: (state, action: PayloadAction<boolean>) => {
-      state.error = action.payload;
-    },
   },
 });
 
 export default visualCrossingSlice.reducer;
-export const { setVisualCrossing, setVisualCrossingError } = visualCrossingSlice.actions;
+export const { setVisualCrossing } = visualCrossingSlice.actions;

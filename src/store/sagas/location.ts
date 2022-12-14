@@ -3,7 +3,7 @@ import { call, CallEffect, put, PutEffect } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { requestWeather } from '@store/actions';
-import { setError, setGeolocation } from '@store/opencage/opencage.slice';
+import { setGeolocation } from '@store/opencage/opencage.slice';
 
 import { FetchDataType } from '@customTypes/sagas';
 
@@ -12,6 +12,8 @@ import { Geometry, IOpencage, Result } from '@interfaces/IOpencage';
 import { openCageApiUrl } from '@constants/apiUrls';
 
 import { fetchData } from '@api/fetchData';
+
+import { setError } from '@store/fetchStatus/fetchStatus.slice';
 
 export function* setOpenCageData(
   payload: ReturnType<typeof requestWeather>,

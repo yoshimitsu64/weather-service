@@ -1,6 +1,6 @@
 import Layout from '@components/layout';
 import Content from '@components/content';
-import Footer from '@components/footer';
+import WeekWeatherBar from '@components/weekWeatherBar';
 import ErrorBoundary from '@components/errorBoundary';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <ErrorBoundary>
       <Layout>
         <Content />
-        <Footer />
+        <WeekWeatherBar />
       </Layout>
     </ErrorBoundary>
   );

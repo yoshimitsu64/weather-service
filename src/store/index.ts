@@ -24,6 +24,7 @@ import {
   visualCrossingPersistConfig,
   openWeatherMapPersistConfig,
 } from '@store/persistConfig';
+import fetchStatusSlice from '@store/fetchStatus/fetchStatus.slice';
 
 import { accuweatherApi } from './accuweather/accuweather.api';
 
@@ -34,6 +35,7 @@ const reducer = combineReducers({
   visualCrossing: persistReducer(visualCrossingPersistConfig, visualCrossingSlice),
   openCage: persistReducer(openCagePersistConfig, opencageSlice),
   selectedService: selectedServiceSlice,
+  fetchStatus: fetchStatusSlice,
 });
 
 export const sagaMiddleware = createSagaMiddleware();

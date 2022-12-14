@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.div`
+export const StyledWeatherBarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,9 +16,17 @@ export const StyledFooter = styled.div`
   background: ${({ theme }) => theme.colors.rgbaColor[10]};
 `;
 
-export const StyledWeatherContainer = styled.div`
+export const StyledWeatherBar = styled.div`
   display: flex;
   align-items: center;
+  width: ${({ theme }) => theme?.sizes.width[4]}%;
+  justify-content: space-between;
+`;
+
+export const StyledWeather = styled.div`
+  display: flex;
+  align-items: center;
+  height: ${({ theme }) => theme?.sizes.height[4]}%;
   width: ${({ theme }) => theme?.sizes.width[4]}%;
   justify-content: space-between;
 `;

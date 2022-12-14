@@ -33,9 +33,9 @@ describe('Automatically detect location and fetch weekWeather', () => {
     cy.get('[data-cy=OpenWeatherMap]').click();
   });
 
-  it('Should get new weather data' , () => {
-      cy.get('[data-cy=input]').clear().type("Dubai");
-      cy.wait(3000);
-      cy.get('[data-cy=Dubai]').click();
-  })
+  it('Should get new weather data', () => {
+    cy.get('[data-cy=searchBar]').clear().type('Dubai');
+    cy.wait(3000);
+    cy.get('[data-cy=Dubai]').click();
+  });
 });

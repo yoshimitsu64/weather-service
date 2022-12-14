@@ -5,13 +5,11 @@ import { Result } from '@interfaces/IOpencage';
 interface IInitialState {
   geolocation: Result | null;
   isLoading: boolean;
-  error: boolean | null;
 }
 
 const initialState: IInitialState = {
   geolocation: null,
   isLoading: false,
-  error: null,
 };
 
 const opencageSlice = createSlice({
@@ -24,11 +22,8 @@ const opencageSlice = createSlice({
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
-    setError: (state, action: PayloadAction<boolean>) => {
-      state.error = action.payload;
-    },
   },
 });
 
 export default opencageSlice.reducer;
-export const { setGeolocation, setIsLoading, setError } = opencageSlice.actions;
+export const { setGeolocation, setIsLoading } = opencageSlice.actions;

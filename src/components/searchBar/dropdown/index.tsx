@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { IDate } from '@interfaces/IPlace';
 
 import { StyledDropDown, StyledDropDownContainer, StyledListItem } from './styled';
@@ -30,4 +32,4 @@ const Dropdown = ({ isOpen, places, onHandleClick }: IProps): JSX.Element | null
   );
 };
 
-export default Dropdown;
+export default memo(Dropdown);

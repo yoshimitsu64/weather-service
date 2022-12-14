@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, memo, useEffect, useRef } from 'react';
+import { ChangeEvent, useState, useEffect, useRef, useCallback } from 'react';
 
 import { useSearchCityQuery } from '@store/accuweather/accuweather.api';
 
@@ -10,11 +10,11 @@ import { useAppDispatch, useAppSelector } from '@hooks/storeHooks';
 import { requestWeather } from '@store/actions';
 import { selectOpenCage } from '@store/selectors';
 
-import Dropdown from '@components/input/dropdown';
+import Dropdown from '@components/searchBar/dropdown';
 
 import { StyledInput, StyledInputContainer } from './styled';
 
-const Input = (): JSX.Element => {
+const SearchBar = (): JSX.Element => {
   const cityStorage = useAppSelector(selectOpenCage);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -32,10 +32,13 @@ const Input = (): JSX.Element => {
     setValue(e.target.value);
   };
 
-  const handleClick = (latitude: number, longitude: number, city: string) => () => {
-    setValue(city);
-    dispatch(requestWeather(latitude, longitude));
-  };
+  const handleClick = useCallback(
+    (latitude: number, longitude: number, city: string) => () => {
+      setValue(city);
+      dispatch(requestWeather(latitude, longitude));
+    },
+    [],
+  );
 
   const handleIsOpen = () => {
     setIsOpen(true);
@@ -82,4 +85,4 @@ const Input = (): JSX.Element => {
   );
 };
 
-export default memo(Input);
+export default SearchBar;

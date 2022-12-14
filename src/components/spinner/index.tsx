@@ -1,7 +1,5 @@
 import ReactDOM from 'react-dom';
 
-import { memo } from 'react';
-
 import { Watch } from 'react-loader-spinner';
 
 import { useAppSelector } from '@hooks/storeHooks';
@@ -17,6 +15,7 @@ const Spinner = () => {
   if (!isLoading) {
     return null;
   }
+
   return ReactDOM.createPortal(
     <StyledModalContainer display={isLoading ? 'flex' : 'none'}>
       <Watch height="80" width="80" radius="48" color="#4fa94d" ariaLabel="watch-loading" />
@@ -25,4 +24,4 @@ const Spinner = () => {
   );
 };
 
-export default memo(Spinner);
+export default Spinner;

@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import WeatherSlider from '@components/widget/weatherSlider';
 import WidgetHeader from '@components/widget/widgetHeader';
 import WeatherDescription from '@components/widget/weatherDescription';
@@ -16,4 +14,4 @@ const Widget = (): JSX.Element => {
   );
 };
 
-export default memo(Widget);
+export default Widget;

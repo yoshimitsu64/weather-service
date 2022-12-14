@@ -4,30 +4,30 @@ import { StyledModalContainer } from '@components/modals/eventsModal/styled';
 
 import { useAppSelector } from '@hooks/storeHooks';
 
-import { selectError } from '@store/selectors/selectError';
+import { selectError } from '@store/selectors';
 
 import { StyledErrorContainer } from './styled';
 
 const ErrorModal = (): JSX.Element | null => {
-  const openCageError = useAppSelector(selectError);
+  const error = useAppSelector(selectError);
 
-  const [isClosed, setIsClosed] = useState<boolean>(true);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const handleClick = () => () => {
-    setIsClosed(true);
+    setIsVisible(false);
   };
 
   useEffect(() => {
-    openCageError && setIsClosed(false);
-  }, []);
+    error && setIsVisible(true);
+  }, [error]);
 
-  if (isClosed) {
+  if (!isVisible) {
     return null;
   }
 
   return (
-    <StyledModalContainer display={openCageError ? 'flex' : 'none'} onClick={handleClick()}>
-      <StyledErrorContainer>{openCageError}</StyledErrorContainer>
+    <StyledModalContainer display={error ? 'flex' : 'none'} onClick={handleClick()}>
+      <StyledErrorContainer>{error && 'Something went wrong...'}</StyledErrorContainer>
     </StyledModalContainer>
   );
 };

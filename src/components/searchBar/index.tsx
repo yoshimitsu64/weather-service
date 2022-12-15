@@ -78,7 +78,7 @@ const SearchBar = (): JSX.Element => {
         value={value}
         onClick={handleIsOpen}
         ref={inputRef}
-        data-cy="input"
+        data-cy="searchBar"
       />
       <Dropdown isOpen={isOpen} places={places} onHandleClick={handleClick} />
     </StyledInputContainer>

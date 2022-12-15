@@ -42,7 +42,10 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "test:cypress": "start-server-and-test start http://localhost:3000 cypress",
+    "cypress": "cypress open",
+    "cy:run": "cypress run"
   },
   "browserslist": {
     "production": [
@@ -100,6 +103,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.3.1",
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.1",
+    "start-server-and-test": "^1.15.2"
   }
 }

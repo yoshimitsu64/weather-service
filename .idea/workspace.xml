@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37a60b17-ded9-4129-b7c1-06e067c603e7" name="Changes" comment="feat: add automatic tests">
-      <change afterPath="$PROJECT_DIR$/src/components/carousel/index.tsx" afterDir="false" />
+    <list default="true" id="37a60b17-ded9-4129-b7c1-06e067c603e7" name="Changes" comment="fix: react-elastic-carousel children error">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widget/weatherSlider/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/widget/weatherSlider/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +208,7 @@
       <workItem from="1670990225111" duration="474000" />
       <workItem from="1670998797273" duration="613000" />
       <workItem from="1671071256575" duration="3325000" />
-      <workItem from="1671074625455" duration="1022000" />
+      <workItem from="1671074625455" duration="1396000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1669323443965</created>
@@ -365,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671074381993</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fix: react-elastic-carousel children error">
+      <created>1671075719326</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1671075719326</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +403,10 @@
     <MESSAGE value="feat: optimization" />
     <MESSAGE value="feat: add yml" />
     <MESSAGE value="feat: add automatic tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add automatic tests" />
+    <MESSAGE value="feat: fixed react-elastic-carousel children error" />
+    <MESSAGE value="fix: fixed react-elastic-carousel children error" />
+    <MESSAGE value="fix: react-elastic-carousel children error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: react-elastic-carousel children error" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

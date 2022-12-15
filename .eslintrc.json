@@ -42,10 +42,6 @@
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages"
-    ],
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "react/function-component-definition": "off",
@@ -64,6 +60,9 @@
     "@typescript-eslint/no-extra-non-null-assertion": "off",
     "no-unused-vars": "off",
     "no-return-await": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "no-console": "off",
     "prettier/prettier": [
       "error",
       {

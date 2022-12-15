@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37a60b17-ded9-4129-b7c1-06e067c603e7" name="Changes" comment="fix: public folder">
-      <change afterPath="$PROJECT_DIR$/src/constants/backGroundImages.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/styled.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widget/weatherDescription/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/widget/weatherDescription/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/setBackgroundImage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/setBackgroundImage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/selectDayWeather.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/selectDayWeather.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/selectors/selectHourWeather.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/selectors/selectHourWeather.ts" afterDir="false" />
-    </list>
+    <list default="true" id="37a60b17-ded9-4129-b7c1-06e067c603e7" name="Changes" comment="fix: public folder" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,7 +207,7 @@
       <workItem from="1671071256575" duration="3325000" />
       <workItem from="1671074625455" duration="11993000" />
       <workItem from="1671088721471" duration="548000" />
-      <workItem from="1671090344293" duration="174000" />
+      <workItem from="1671090344293" duration="485000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1669323443965</created>
@@ -416,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671082993156</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix: public folder">
+      <created>1671090822311</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1671090822311</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

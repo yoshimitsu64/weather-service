@@ -40,4 +40,3 @@ export interface IEvent {
   reminders: IReminders;
   eventType: string;
 }
-

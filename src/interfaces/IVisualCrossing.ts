@@ -92,4 +92,3 @@ export interface IVisualCrossing {
   days: Day[];
   stations: Stations;
 }
-

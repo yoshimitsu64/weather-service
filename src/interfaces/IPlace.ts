@@ -16,5 +16,3 @@ export interface IDate {
 export interface IPlace {
   data: IDate[];
 }
-
-

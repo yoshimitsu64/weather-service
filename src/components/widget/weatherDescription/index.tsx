@@ -8,7 +8,7 @@ import { ForwardRef } from '@customTypes/index';
 
 import EventsModal from '@components/modals/eventsModal';
 
-import { openWeatherMapImageURL, visualCrossingImageURL } from '@constants/images';
+import { openWeatherMapImageURL } from '@constants/images';
 
 import {
   StyledCalendar,
@@ -31,7 +31,7 @@ const WeatherDescription = (): JSX.Element => {
   const weatherImageSrc =
     selectedService === 'OpenWeatherMap'
       ? `${openWeatherMapImageURL}${openWeather?.daily?.[0].weather[0].icon}@2x.png`
-      : `${visualCrossingImageURL}${visualCrossingWeather?.days?.[0].icon}.svg`;
+      : require(`assets/SVGS/${visualCrossingWeather?.days?.[0].icon}.svg`);
 
   const degrees =
     selectedService === 'OpenWeatherMap'

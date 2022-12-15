@@ -34,7 +34,7 @@ export const selectDayWeather = createSelector(
           arr.push({
             temperature: temp,
             day: datetimeEpoch,
-            icon: require(`@assets/SVGS/${icon}.svg`),
+            icon: require(`assets/SVGS/${icon}.svg`),
             key: `${temp}-${moonphase}-${description}-${solarradiation}`,
           }),
       );

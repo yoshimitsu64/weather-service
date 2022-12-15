@@ -44,7 +44,7 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "test:cypress": "start-server-and-test start http://localhost:3000 cypress",
-    "cypress": "cypress run"
+    "cypress": "cypress opena"
   },
   "browserslist": {
     "production": [

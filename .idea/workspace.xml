@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="37a60b17-ded9-4129-b7c1-06e067c603e7" name="Changes" comment="feat: add automatic tests" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/layout" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/App.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/store/sagas/location.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/store/sagas/weather.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/store/selectors/index.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/store/selectors/selectDayWeather.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/tests/sagas.test.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/tests/testsPayloads/coordinatesPayload.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/tests/testsPayloads/openCageData.ts" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2I0agRq8EESgxGz318WUeGTGz89" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Modsen/Tasks/weather-service/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Modsen/Tasks/weather-service/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\Modsen\\Tasks\\weather-service\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Modsen\\Tasks\\weather-service\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Modsen\Tasks\weather-service\src" />
+      <recent name="D:\Modsen\Tasks\weather-service\public\SVGS" />
+      <recent name="D:\Modsen\Tasks\weather-service\public" />
+      <recent name="D:\Modsen\Tasks\weather-service\src\components\todayWeather" />
+      <recent name="D:\Modsen\Tasks\weather-service\public\backgroundImages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Modsen\Tasks\weather-service\src\components\footer" />
+      <recent name="D:\Modsen\Tasks\weather-service\src\customTypes" />
+      <recent name="D:\Modsen\Tasks\weather-service" />
+      <recent name="D:\Modsen\Tasks\weather-service\src\hooks" />
+      <recent name="D:\Modsen\Tasks\weather-service\src\components\modals\eventsModal" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.getWeather">
+    <configuration name="getWeather" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/tests/sagas.test.ts" />
+      <test-names>
+        <test-name value="getWeather" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="getWeather.Should make openCage request and return correct data" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/tests/sagas.test.ts" />
+      <test-names>
+        <test-name value="getWeather" />
+        <test-name value="Should make openCage request and return correct data" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="asd.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/asd.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="sadasd.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/sadasd.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.asd.js" />
+        <item itemvalue="Node.js.sadasd.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37a60b17-ded9-4129-b7c1-06e067c603e7" name="Changes" comment="" />
+      <created>1669321068593</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669321068593</updated>
+      <workItem from="1669321070022" duration="11829000" />
+      <workItem from="1669357809005" duration="1283000" />
+      <workItem from="1669459328950" duration="6336000" />
+      <workItem from="1669466693224" duration="5255000" />
+      <workItem from="1669479318180" duration="1389000" />
+      <workItem from="1669480733201" duration="870000" />
+      <workItem from="1669481620875" duration="4000" />
+      <workItem from="1669487487634" duration="22508000" />
+      <workItem from="1669545017081" duration="45726000" />
+      <workItem from="1669596732165" duration="509000" />
+      <workItem from="1669614336754" duration="4664000" />
+      <workItem from="1669620289517" duration="11326000" />
+      <workItem from="1669634698999" duration="5234000" />
+      <workItem from="1669655408676" duration="14505000" />
+      <workItem from="1669701782779" duration="96000" />
+      <workItem from="1669704571127" duration="608000" />
+      <workItem from="1669732477816" duration="1076000" />
+      <workItem from="1669751256436" duration="15744000" />
+      <workItem from="1669788286856" duration="3591000" />
+      <workItem from="1669793667965" duration="9375000" />
+      <workItem from="1669808697745" duration="3601000" />
+      <workItem from="1669830893295" duration="19782000" />
+      <workItem from="1670059269825" duration="33941000" />
+      <workItem from="1670155607596" duration="18992000" />
+      <workItem from="1670175508545" duration="12085000" />
+      <workItem from="1670251829223" duration="749000" />
+      <workItem from="1670266890967" duration="21359000" />
+      <workItem from="1670305655159" duration="4293000" />
+      <workItem from="1670322023006" duration="11679000" />
+      <workItem from="1670354701551" duration="37690000" />
+      <workItem from="1670398583456" duration="4613000" />
+      <workItem from="1670404982091" duration="3133000" />
+      <workItem from="1670408151036" duration="3759000" />
+      <workItem from="1670419950287" duration="3357000" />
+      <workItem from="1670444322760" duration="489000" />
+      <workItem from="1670450164354" duration="7354000" />
+      <workItem from="1670461492445" duration="13552000" />
+      <workItem from="1670480137617" duration="6327000" />
+      <workItem from="1670487043029" duration="764000" />
+      <workItem from="1670487884403" duration="2027000" />
+      <workItem from="1670491465951" duration="5298000" />
+      <workItem from="1670525878163" duration="17844000" />
+      <workItem from="1670551766951" duration="827000" />
+      <workItem from="1670552610803" duration="289000" />
+      <workItem from="1670552912936" duration="155000" />
+      <workItem from="1670553081337" duration="22881000" />
+      <workItem from="1670590586199" duration="1861000" />
+      <workItem from="1670595329752" duration="571000" />
+      <workItem from="1670615978901" duration="7646000" />
+      <workItem from="1670752168088" duration="12676000" />
+      <workItem from="1670770051696" duration="1191000" />
+      <workItem from="1670771268036" duration="4381000" />
+      <workItem from="1670805682787" duration="12532000" />
+      <workItem from="1670825729079" duration="1798000" />
+      <workItem from="1670828919737" duration="33000" />
+      <workItem from="1670830683393" duration="10475000" />
+      <workItem from="1670844888618" duration="3124000" />
+      <workItem from="1670850765033" duration="4553000" />
+      <workItem from="1670874453440" duration="33115000" />
+      <workItem from="1670917641741" duration="1031000" />
+      <workItem from="1670918721707" duration="118000" />
+      <workItem from="1670918922752" duration="12584000" />
+      <workItem from="1670935689074" duration="3775000" />
+      <workItem from="1670983268414" duration="2627000" />
+      <workItem from="1670985923298" duration="2916000" />
+      <workItem from="1670988875389" duration="1328000" />
+      <workItem from="1670990225111" duration="474000" />
+      <workItem from="1670998797273" duration="613000" />
+      <workItem from="1671071256575" duration="3325000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1669323443965</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669323443965</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init">
+      <created>1669323459701</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669323459701</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: implement layout">
+      <created>1669357865855</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669357865855</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: implement layout">
+      <created>1669357875955</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669357875955</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: problems with react-google-calendar">
+      <created>1669596089998</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669596089998</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: add google calendar events">
+      <created>1669668364848</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669668364848</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: add 2 weather services">
+      <created>1669851323213</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669851323213</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: add weather forecast to 1 day">
+      <created>1670083576976</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670083576976</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: add selectors">
+      <created>1670326044132</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670326044132</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: refactor">
+      <created>1670482644623</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670482644623</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: refactor">
+      <created>1670493458979</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670493458979</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: add tests">
+      <created>1670826025243</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670826025243</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: add spinner">
+      <created>1670931487411</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670931487411</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: add spinner">
+      <created>1670931761701</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670931761701</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix: unused line">
+      <created>1670931958579</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670931958579</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: optimization">
+      <created>1670990640124</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670990640124</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: add yml">
+      <created>1671071427278</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671071427278</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: add automatic tests">
+      <created>1671073561506</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671073561506</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: add automatic tests">
+      <created>1671073939218</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1671073939218</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: add automatic tests">
+      <created>1671074178370</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1671074178370</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat: add automatic tests">
+      <created>1671074309184</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1671074309184</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat: add automatic tests">
+      <created>1671074381993</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1671074381993</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="feat: implement layout" />
+    <MESSAGE value="fix: problems with react-google-calendar" />
+    <MESSAGE value="feat: add google calendar events" />
+    <MESSAGE value="feat: add 2 weather services" />
+    <MESSAGE value="feat: add weather forecast to 1 day" />
+    <MESSAGE value="feat: add selectors" />
+    <MESSAGE value="feat: refactor" />
+    <MESSAGE value="feat: add tests" />
+    <MESSAGE value="feat: add spinner" />
+    <MESSAGE value="fix: unused line" />
+    <MESSAGE value="feat: optimization" />
+    <MESSAGE value="feat: add yml" />
+    <MESSAGE value="feat: add automatic tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add automatic tests" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

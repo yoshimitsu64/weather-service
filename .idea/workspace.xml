@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37a60b17-ded9-4129-b7c1-06e067c603e7" name="Changes" comment="fix: eslint">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/support/commands.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/commands.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/support/e2e.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/e2e.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/IEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/IEvents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/IPlace.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/IPlace.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/IVisualCrossing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/IVisualCrossing.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +69,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "D:\\Modsen\\Tasks\\weather-service\\node_modules\\prettier",
     "settings.editor.selected.configurable": "preferences.editor.code.editing",
-    "ts.external.directory.path": "D:\\Modsen\\Tasks\\weather-service\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.1.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -214,7 +207,7 @@
       <workItem from="1670990225111" duration="474000" />
       <workItem from="1670998797273" duration="613000" />
       <workItem from="1671071256575" duration="3325000" />
-      <workItem from="1671074625455" duration="2219000" />
+      <workItem from="1671074625455" duration="2484000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1669323443965</created>
@@ -384,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671076062443</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fix: eslint">
+      <created>1671076915547</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1671076915547</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

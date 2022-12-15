@@ -18,13 +18,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: install modules
-      run: npm install
+      run: yarn install
     - name: build project
-      run: npm run build
+      run: yarn run build
     - name: unit test
-      run: test
+      run: yarn run test
     - name: eslint
-      run: lint
+      run: yarn run lint
     - name: e2e tests
-      run: test:cypress
+      run: yarn run test:cypress
 

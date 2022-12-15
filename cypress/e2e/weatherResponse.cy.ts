@@ -27,15 +27,15 @@ describe('Automatically detect location and fetch weekWeather', () => {
   });
 
   it('Should chose visualCrossingData service and change backround image', () => {
-    cy.get('[data-cy=options]').click();
-    cy.get('[data-cy=VisualCrossing]').click();
+    cy.get('[data-cy=options]').click({ force: true });
+    cy.get('[data-cy=VisualCrossing]').click({ force: true });
     cy.wait(3000);
-    cy.get('[data-cy=OpenWeatherMap]').click();
+    cy.get('[data-cy=OpenWeatherMap]').click({ force: true });
   });
 
   it('Should get new weather data', () => {
-    cy.get('[data-cy=searchBar]').clear().type('Dubai');
+    cy.get('[data-cy=searchBar]').clear({ force: true }).type('Dubai');
     cy.wait(3000);
-    cy.get('[data-cy=Dubai]').click();
+    cy.get('[data-cy=dropdown]').get('[data-cy=Dubai]').click({ force: true });
   });
 });

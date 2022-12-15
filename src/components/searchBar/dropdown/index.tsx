@@ -17,7 +17,7 @@ const Dropdown = ({ isOpen, places, onHandleClick }: IProps): JSX.Element | null
 
   return (
     <StyledDropDownContainer>
-      <StyledDropDown>
+      <StyledDropDown data-cy="dropdown">
         {places?.map(({ id, latitude, longitude, city, name, country }) => (
           <StyledListItem
             key={id}

@@ -20,7 +20,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
-
     "types": [
       "cypress",
       "node"
@@ -52,6 +51,9 @@
       ],
       "@customTypes/*": [
         "./customTypes/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
       ]
     }
   },

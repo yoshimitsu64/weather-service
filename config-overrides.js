@@ -11,6 +11,7 @@ module.exports = function override(config) {
     '@helpers': 'src/helpers',
     '@api': 'src/api',
     '@customTypes': 'src/customTypes',
+    '@assets': 'src/assets',
   })(config);
   return config;
 };

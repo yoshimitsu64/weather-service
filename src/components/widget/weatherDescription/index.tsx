@@ -46,7 +46,7 @@ const WeatherDescription = (): JSX.Element => {
     <StyledWeatherDescriptionContainer>
       <StyledCalendar onClick={handleClick()}>
         <StyledCalendarImage
-          src={`${visualCrossingImageURL}weekly-calendar-monthly-calendar-svgrepo-com.svg`}
+          src={require('@assets/SVGS/weekly-calendar-monthly-calendar-svgrepo-com.svg').default}
           alt="didnt load"
         />
       </StyledCalendar>

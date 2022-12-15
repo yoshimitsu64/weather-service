@@ -33,7 +33,7 @@ export const selectHourWeather = createSelector(
         key: datetime,
         datetime: datetime.slice(0, 5),
         temp,
-        icon: `${process.env.PUBLIC_URL}/assets/SVGS/${icon}.svg`,
+        icon: require(`@assets/SVGS/${icon}.svg`),
       }),
     );
 

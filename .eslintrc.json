@@ -63,6 +63,8 @@
     "@typescript-eslint/no-explicit-any": "off",
     "react-hooks/exhaustive-deps": "off",
     "no-console": "off",
+    "global-require": "off",
+    "import/no-dynamic-require": "off",
     "prettier/prettier": [
       "error",
       {

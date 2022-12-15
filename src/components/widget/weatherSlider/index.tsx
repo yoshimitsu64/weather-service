@@ -1,9 +1,8 @@
-import CustomCarousel from '@components/carousel';
-
 import { useAppSelector } from '@hooks/storeHooks';
 
 import { selectHourWeather } from '@store/selectors/selectHourWeather';
 
+import CustomCarousel from '@components/carousel';
 import HourWeather from '@components/widget/hourWeather';
 import { StyledWeatherSlider } from '@components/widget/weatherSlider/styled';
 
